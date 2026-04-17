@@ -870,17 +870,20 @@ nav #btnCon {
 }
 
 .service-alert {
-  display: none;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
   align-items: center;
   gap: 10px;
   background: rgba(180,0,0,0.15);
   border: 1px solid rgba(180,0,0,0.4);
   border-radius: 10px;
-  padding: 14px 18px;
+  padding: 0 18px;
   color: #ff6b6b;
   font-size: 13px;
   letter-spacing: 1px;
   text-transform: uppercase;
+  transition: all 0.3s ease;
 }
 
 .service-alert ion-icon {
@@ -889,6 +892,9 @@ nav #btnCon {
 }
 
 .service-alert.show {
+  visibility: visible;
+  height: auto;
+  padding: 14px 18px;
   display: flex;
 }
 
