@@ -222,8 +222,8 @@
   <div class="contact-right">
     <select class="contact-input" id="serviceSelect" onchange="checkService()">
       <option value="">Select a Service</option>
-      <option value="graphic">Graphic Design</option>
-      <option value="web">Web Development</option>
+      <option value="Graphic Design">Graphic Design</option>
+      <option value="Web Development">Web Development</option>
     </select>
 
     <div class="service-alert" id="serviceAlert">
@@ -262,12 +262,12 @@
   
   function sendWhatsApp() {
     const select = document.getElementById('serviceSelect');
-    if (select.value === 'web') return;
+    if (select.value === 'Web Development') return;
     
     const name = document.querySelector('input[placeholder="Name"]').value;
     const email = document.querySelector('input[placeholder="Email"]').value;
     const message = document.querySelector('textarea').value;
-    const text = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+    const text = `Service: ${select.value}%OAName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
     window.open(`https://wa.me/21692131604?text=${text}`, '_blank');
   }
 </script>
