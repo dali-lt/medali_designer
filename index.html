@@ -220,6 +220,16 @@
   </div>
 
   <div class="contact-right">
+    <select class="contact-input" id="serviceSelect" onchange="checkService()">
+      <option value="">Select a Service</option>
+      <option value="graphic">Graphic Design</option>
+      <option value="web">Web Development</option>
+    </select>
+
+    <div class="service-alert" id="serviceAlert">
+       <ion-icon name="warning-outline"></ion-icon>
+       This service is not available yet.
+    </div>
     <input type="text" placeholder="Name" class="contact-input"/>
     <input type="email" placeholder="Email" class="contact-input"/>
     <textarea placeholder="Message" class="contact-textarea"></textarea>
@@ -238,14 +248,28 @@
     document.getElementById('overlay').classList.toggle('open');
     document.getElementById('hamburger').classList.toggle('open');
   }
+
+  function checkService() {
+    const select = document.getElementById('serviceSelect');
+    const alert = document.getElementById('serviceAlert');
+  
+    if (select.value === 'web') {
+      alert.classList.add('show');
+    } else {
+      alert.classList.remove('show');
+    }
+   }
   
   function sendWhatsApp() {
-  const name = document.querySelector('input[placeholder="Name"]').value;
-  const email = document.querySelector('input[placeholder="Email"]').value;
-  const message = document.querySelector('textarea').value;
-  const text = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
-  window.open(`https://wa.me/21692131604?text=${text}`, '_blank');
-}
+    const select = document.getElementById('serviceSelect');
+    if (select.value === 'web') return;
+    
+    const name = document.querySelector('input[placeholder="Name"]').value;
+    const email = document.querySelector('input[placeholder="Email"]').value;
+    const message = document.querySelector('textarea').value;
+    const text = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+    window.open(`https://wa.me/21692131604?text=${text}`, '_blank');
+  }
 </script>
  
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
