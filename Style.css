@@ -869,6 +869,29 @@ nav #btnCon {
   transition: all 0.3s ease;
 }
 
+.service-alert {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  background: rgba(180,0,0,0.15);
+  border: 1px solid rgba(180,0,0,0.4);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: #ff6b6b;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.service-alert ion-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.service-alert.show {
+  display: flex;
+}
+
 .contact-whatsapp-note {
   display: flex;
   align-items: center;
