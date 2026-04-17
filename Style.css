@@ -418,8 +418,40 @@ nav #btnCon {
   transition: transform 0.3s ease;
 }
 
+.service-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(180, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+  z-index: 10;
+}
+
+.service-overlay ion-icon {
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.service-overlay p {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
 .service-card:hover {
   transform: translateY(-6px);
+}
+
+.service-card:hover .service-overlay {
+  opacity: 1;
 }
 
 /* Accent line top */
