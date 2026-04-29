@@ -81,6 +81,12 @@ nav #btnCon {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+nav #btnCon:hover{
+  background: var(--orange);
+  color: var(--white);
+  border: none;
+}
+
 /* Hamburger */
 .hamburger {
   display: none;
