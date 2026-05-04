@@ -335,6 +335,7 @@ nav #btnCon:hover{
 
 .story-right p {
   text-align: left;
+  text-transform: none;
   font-size: 16px;
   line-height: 1.9;
   color: rgba(255,255,255,0.7);
@@ -852,6 +853,12 @@ nav #btnCon:hover{
 .contact-input::placeholder,
 .contact-textarea::placeholder {
   color: rgba(255,255,255,0.3);
+}
+
+.contact-input option {
+    background-color: var(--black);
+    color: var(--white);
+    font-size: 14px;
 }
 
 .contact-textarea {
