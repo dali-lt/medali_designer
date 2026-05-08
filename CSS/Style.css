@@ -428,7 +428,7 @@ nav #btnCon:hover{
 .service-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(180, 0, 0, 0.92);
+  background: rgba(20, 22, 20, 0.88);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -438,23 +438,41 @@ nav #btnCon:hover{
   transition: opacity 0.3s ease;
   border-radius: 16px;
   z-index: 10;
+  backdrop-filter: blur(4px);
 }
 
 .service-overlay ion-icon {
-  font-size: 36px;
-  color: #ffffff;
+  font-size: 32px;
+  color: rgba(255,255,255,0.5);
 }
 
 .service-overlay p {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Coming soon badge */
+.service-overlay .coming-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1px solid rgba(158,210,227,0.4);
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--blue);
+  text-transform: uppercase;
 }
 
 .service-card:hover {
   transform: translateY(-6px);
+}
+
+/* Web dev card: overlay always visible */
+.service-card:has(.service-overlay) .service-overlay {
+  opacity: 1;
 }
 
 .service-card:hover .service-overlay {
@@ -694,11 +712,96 @@ nav #btnCon:hover{
   color: var(--white);
 }*/
 
+/* Folder external link badge */
+.folder-ext-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.85);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.folder-ext-link ion-icon {
+  font-size: 20px;
+}
+
+.folder-arrow-icon {
+  margin-left: auto;
+  font-size: 18px !important;
+  transition: transform 0.3s ease;
+}
+
+.folder:hover .folder-arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+.folder:hover .folder-body.orange {
+  box-shadow: 0 16px 48px rgba(255,63,26,0.4);
+}
+
+.folder:hover .folder-body.blue {
+  box-shadow: 0 16px 48px rgba(68,121,128,0.5);
+}
+
+/* Work CTA */
+.work-cta {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.work-cta p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.work-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.work-cta-btn ion-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.work-cta-btn:hover {
+  background: var(--orange);
+  color: var(--black);
+}
+
+.work-cta-btn:hover ion-icon {
+  transform: translateX(4px);
+}
+
 /* Mobile */
 @media (max-width: 768px) {
   .work { padding: 60px 24px; }
   .work-grid { grid-template-columns: 1fr; }
   .work-title { font-size: 32px; }
+  .work-cta { flex-direction: column; gap: 16px; }
 }
 
 /* Contact Section */
