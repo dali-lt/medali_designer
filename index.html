@@ -194,6 +194,74 @@
 
 </section>
   
+  <!-- Reviews Section -->
+<section id="reviews" class="reviews">
+
+  <p class="reviews-label">— Client Reviews —</p>
+  <h2 class="reviews-title">What Clients <span>Say</span></h2>
+  <p class="reviews-verify-note">
+    <ion-icon name="logo-instagram"></ion-icon>
+    Reviews verified on Instagram - visit <a href="https://www.instagram.com/design_medali/" target="_blank">@design_medali</a> and tap the <strong>"Reviews"</strong> highlight to confirm
+  </p>
+
+  <div class="reviews-carousel">
+    <div class="reviews-track" id="reviewsTrack">
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">❝ ❤️❤️❤️❤️❤️<br/>يعطيك صحة<br/>يعطيك صحة<br/>حاجة simple و حلوة برشا<br/>👏👏👏👏👏 ❞</p>
+        <div class="review-author">
+          <span class="review-name">Jalloul</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">❝ Leezm mawhbee ki heka leezmha tachjii3<br/>W nchlh nchuufk fi a3lee l marateb❤️❤️ ❞</p>
+        <div class="review-author">
+          <span class="review-name">Delleli.</span>
+        </div>
+      </div>
+      
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">❝ عمل رائع وخدمة مميزة وشخص محترم ❞</p>
+        <div class="review-author">
+          <span class="review-name">Aboud H.</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">❝ ما قصر معي وكان عند حسن ضني يعطيك وقت ويفهم رغباتك ❞</p>
+        <div class="review-author">
+          <span class="review-name">Hamza X.</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">❝ عمل سريع وجميل ومتقن.. شكرا لك. امل التعاون معك مجددا ان شاء الله مستقبلا ❞</p>
+        <div class="review-author">
+          <span class="review-name">Moammar F.</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="reviews-controls">
+    <button class="rev-btn" onclick="moveReviews(-1)">
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </button>
+    <div class="reviews-dots" id="reviewsDots"></div>
+    <button class="rev-btn" onclick="moveReviews(1)">
+      <ion-icon name="arrow-forward-outline"></ion-icon>
+    </button>
+  </div>
+
+</section>
+
   <!-- Contact Section -->
 <section id="contact" class="contact">
   
@@ -258,6 +326,48 @@
 
 </section>
  
+  <script>
+  // Reviews Carousel
+  let currentReview = 0;
+  const track = document.getElementById('reviewsTrack');
+  const cards = track ? track.querySelectorAll('.review-card') : [];
+  const dotsContainer = document.getElementById('reviewsDots');
+
+  function getVisible() {
+    return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 640 ? 2 : 1;
+  }
+
+  function buildDots() {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    const total = Math.ceil(cards.length / getVisible());
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement('span');
+      d.className = 'rev-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goToReview(i);
+      dotsContainer.appendChild(d);
+    }
+  }
+
+  function goToReview(index) {
+    const visible = getVisible();
+    const max = Math.ceil(cards.length / visible) - 1;
+    currentReview = Math.max(0, Math.min(index, max));
+    const cardWidth = cards[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${currentReview * visible * cardWidth}px)`;
+    document.querySelectorAll('.rev-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentReview);
+    });
+  }
+
+  function moveReviews(dir) {
+    goToReview(currentReview + dir);
+  }
+
+  window.addEventListener('load', buildDots);
+  window.addEventListener('resize', () => { buildDots(); goToReview(0); });
+  </script>
+
   <script>
   function toggleMenu() {
     document.getElementById('sidebar').classList.toggle('open');
