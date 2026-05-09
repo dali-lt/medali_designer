@@ -453,6 +453,11 @@
   </script>
 
   <script>
+    function toggleMenu(){
+      document.getElementById("sidebar").classList.toggle('open');
+      document.getElementById("hamburger").classList.toggle('open');
+      document.getElementById("overlay").classList.toggle('open');
+    }
   function sendPackage(name, price) {
     document.getElementById('sidebar').classList.remove('open');
     document.getElementById('overlay').classList.remove('open');
