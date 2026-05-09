@@ -1248,3 +1248,227 @@ nav #btnCon:hover{
   color: rgba(255,255,255,0.6);
   font-size: inherit;
 }
+
+/* ── Pricing Section ── */
+.pricing {
+  padding: 100px 80px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.pricing-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pricing-title {
+  text-align: center;
+  font-size: 42px;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.pricing-title span {
+  color: var(--orange);
+  font-size: inherit;
+}
+
+.pricing-note {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 1px;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: #1a1c1a;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,63,26,0.2);
+}
+
+.pricing-card.featured {
+  border-color: var(--orange);
+  background: #1e1a18;
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.pricing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.pricing-tag {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}
+
+.pricing-price {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+}
+
+.pricing-price span {
+  font-size: 14px;
+  color: var(--orange);
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.pricing-deliverables {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.pricing-deliverables li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.75);
+}
+
+.pricing-deliverables li ion-icon {
+  font-size: 16px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.pricing-meta {
+  color: rgba(255,255,255,0.4) !important;
+  font-size: 12px !important;
+  padding-top: 4px;
+}
+
+.pricing-meta ion-icon {
+  color: rgba(255,255,255,0.3) !important;
+}
+
+.pricing-boundary {
+  color: rgba(255,255,255,0.25) !important;
+  text-decoration: line-through;
+  font-size: 12px !important;
+}
+
+.pricing-boundary ion-icon {
+  color: rgba(255,255,255,0.2) !important;
+}
+
+.pricing-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pricing-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.pricing-btn.featured-btn {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+}
+
+.pricing-btn.featured-btn:hover {
+  background: #e03510;
+}
+
+.pricing-btn ion-icon { font-size: 18px; }
+
+.pricing-footer {
+  text-align: center;
+  margin-top: 48px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pricing-footer ion-icon { color: var(--orange); font-size: 16px; }
+
+.pricing-footer a {
+  color: var(--orange);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: inherit;
+}
+
+.pricing-footer a:hover { text-decoration: underline; }
+
+/* Mobile */
+@media (max-width: 1023px) {
+  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+}
+
+@media (max-width: 768px) {
+  .pricing { padding: 60px 24px; }
+  .pricing-title { font-size: 28px; }
+}
