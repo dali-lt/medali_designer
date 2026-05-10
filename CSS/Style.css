@@ -1348,6 +1348,7 @@ nav #btnCon:hover{
   letter-spacing: 2px;
   text-transform: uppercase;
   color: rgba(255,255,255,0.6);
+  flex: 1;
 }
 
 .pricing-price {
@@ -1465,7 +1466,7 @@ nav #btnCon:hover{
 
 /* Mobile */
 @media (max-width: 1023px) {
-  .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
 
   /* Accordion: hide body by default */
   .pricing-card { cursor: pointer; gap: 0; }
@@ -1488,7 +1489,7 @@ nav #btnCon:hover{
     font-size: 18px;
     color: rgba(255,255,255,0.4);
     transition: transform 0.3s ease;
-    margin-left: auto;
+    margin-left: 16px;
     flex-shrink: 0;
   }
   .pricing-card.open .pricing-chevron {
