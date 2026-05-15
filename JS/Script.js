@@ -130,3 +130,16 @@
     const text = `Service: ${select.value}%0AName: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
     window.open(`https://wa.me/21692131604?text=${text}`, '_blank');
   }
+
+  // Fade in on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('section, .brand-divider').forEach(el => {
+  observer.observe(el);
+});
