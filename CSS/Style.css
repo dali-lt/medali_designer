@@ -347,7 +347,7 @@ nav #btnCon:hover{
 section,
 .brand-divider {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(24px) translateZ(0);
   transition: opacity 0.6s ease, transform 0.6s ease;
   will-change: opacity, transform;
 }
@@ -355,7 +355,7 @@ section,
 section.visible,
 .brand-divider.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
   will-change: auto;
 }
 
