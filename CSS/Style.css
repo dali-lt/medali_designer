@@ -502,7 +502,11 @@ section.visible,
 /* Mobile */
 @media (max-width: 768px) {
   /* story fixes */
-  .story { padding: 60px 24px 40px; }
+  .story {
+    padding: 60px 24px 40px;
+    display: flex;
+    flex-direction: column;
+  }
   .story-title { font-size: clamp(40px, 12vw, 80px); letter-spacing: -1px; }
 
   .story-origin {
