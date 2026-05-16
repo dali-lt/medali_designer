@@ -487,13 +487,21 @@ section.visible,
 
 /* Mobile */
 @media (max-width: 768px) {
-  .story { padding: 60px 24px; }
+  /* story fixes */
+  .story { padding: 60px 24px 40px; }
   .story-title { font-size: clamp(40px, 12vw, 80px); letter-spacing: -1px; }
+
+  .story-origin {
+    position: relative;
+    top: unset;
+    left: unset;
+    margin-bottom: 16px;
+  }
 
   .story-right {
     position: relative;
     top: unset;
-    left: 5px;
+    left: unset;
     width: 100%;
     margin-top: 32px;
   }
@@ -503,15 +511,16 @@ section.visible,
     gap: 32px;
   }
 
-  .story-origin {
-    left: 50%;
-    top: 65px;
-    line-height: 1;
+  .story-closing {
+    position: relative;
+    left: unset;
+    top: unset;
   }
 
-  .story-closing{
-    left: 5px;
-    top: 350px;
+  .pricing-card,
+  .pricing-card.featured {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 }
 
