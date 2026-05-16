@@ -360,6 +360,14 @@ section,
   will-change: opacity, transform;
 }
 
+.brand-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 20px 0;
+}
+
 section.visible,
 .brand-divider.visible {
   opacity: 1;
