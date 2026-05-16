@@ -349,12 +349,14 @@ section,
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
 }
 
 section.visible,
 .brand-divider.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto;
 }
 
 /* Story Section */
