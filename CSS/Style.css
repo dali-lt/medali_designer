@@ -81,8 +81,7 @@ nav {
 
 .logo img {
   width: 40px;
-  mix-blend-mode: lighten;
-  /*border-radius: 50%;*/
+  mix-blend-mode: lighten; 
 }
 
 /* Nav Links */
@@ -219,9 +218,7 @@ nav #btnCon:hover{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /*min-height: 100vh;*/
   margin: 50px 0;
-  /*padding: 0 20px;*/
   gap: 40px;
 }
 
@@ -303,14 +300,6 @@ nav #btnCon:hover{
 }
 
 /* + Brand Divider */
-.brand-divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
-  padding: 20px 0;
-}
-
 .brand-divider img {
   width: 18px;
   height: 18px;
@@ -641,12 +630,6 @@ section.visible,
 .service-accent.orange { background: var(--orange); }
 .service-accent.blue   { background: var(--blue); }
 
-/* Icon */
-/*.service-icon {
-  font-size: 32px;
-  margin-top: 16px;
-}*/
-
 .service-icon ion-icon {
   font-size: 36px;
 }
@@ -789,14 +772,6 @@ section.visible,
   box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }
 
-/*.folder:first-child .folder-tab {
-  background: #cc3200;
-}
-
-.folder:last-child .folder-tab {
-  background: #336066;
-}*/
-
 /* Folder Body */
 .folder-body {
   border-radius: 0 12px 12px 12px;
@@ -846,19 +821,6 @@ section.visible,
   color: rgba(255,255,255,0.7);
   line-height: 1.7;
 }
-
-/* Arrow */
-/*.folder-arrow {
-  width: 50px;
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
-.folder-arrow ion-icon {
-  font-size: 22px;
-  color: var(--white);
-}*/
 
 /* Folder external link badge */
 .folder-ext-link {
@@ -953,17 +915,6 @@ section.visible,
   .work-grid { grid-template-columns: 1fr; }
   .work-title { font-size: 32px; }
   .work-cta { flex-direction: column; gap: 16px; }
-
-  .service-overlay,
-  .folder-tab,
-  .folder-tab1,
-  .pricing-card,
-  .pricing-card.featured,
-  .review-card,
-  .contact-right {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
 }
 
 /* Contact Section */
@@ -1123,11 +1074,6 @@ section.visible,
     background-color: var(--black);
     color: var(--white);
     font-size: 14px;
-}
-
-.contact-textarea {
-  min-height: 140px;
-  resize: none;
 }
 
 /* Submit Button */
