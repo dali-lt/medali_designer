@@ -49,6 +49,9 @@
       document.getElementById("sidebar").classList.toggle('open');
       document.getElementById("hamburger").classList.toggle('open');
       document.getElementById("overlay").classList.toggle('open');
+
+      document.body.classList.toggle('no-scroll');
+      document.documentElement.classList.toggle('no-scroll');
     }
   function sendPackage(name, price) {
     document.getElementById('sidebar').classList.remove('open');
