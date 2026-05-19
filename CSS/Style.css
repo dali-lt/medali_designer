@@ -386,6 +386,10 @@ nav #btnCon:hover {
   color: var(--orange);
 }
 
+.hero-btn:hover .btn-arrow {
+  border-color: var(--orange);
+}
+
 /* Image */
 .hero-img {
   flex: 1;
