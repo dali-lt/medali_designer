@@ -316,6 +316,15 @@ nav #btnCon:hover {
   font-style: italic;
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  z-index: 3;
+}
+
 .hero-sub span {
   font-size: inherit;
   text-transform: uppercase;
@@ -470,6 +479,12 @@ nav #btnCon:hover {
     max-width: 280px;
   }
 
+  .hero-content {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
   .hero-role,
   .hero-desc {
     position: relative;
@@ -483,11 +498,11 @@ nav #btnCon:hover {
   .hero-btn {
     position: relative;
     bottom: auto;
-    left: auto;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
     width: fit-content;
-    margin: 16px auto 0;
-    text-align: center;
+    margin-top: 16px;
   }
 }
 
