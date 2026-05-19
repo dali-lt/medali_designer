@@ -273,7 +273,7 @@ nav #btnCon:hover {
 .hero {
   position: relative;
   align-items: center;
-  margin: 50px 0;
+  margin: 50px 20px;
 }
 
 /* Big name behind everything */
@@ -324,7 +324,8 @@ nav #btnCon:hover {
 .hero-role {
   position: absolute;
   bottom: 5px;
-  right: 5px;
+  left: 5px;
+  width: 165px;
   font-size: 13px;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
@@ -334,11 +335,19 @@ nav #btnCon:hover {
 .hero-desc {
   position: absolute;
   bottom: 5px;
-  left: 5px;
+  right: 5px;
   font-size: 15px;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
   text-transform: none;
+}
+
+.hero-desc span {
+  display: inline-block;
+  width: 150px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
 }
 
 /* Button */
@@ -439,17 +448,21 @@ nav #btnCon:hover {
     padding: 48px 24px;
     text-align: center;
     align-items: center;
+    overflow: clip;
   }
 
   .hero-bg-name {
-    position: relative;
-    top: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
     font-size: 13vw;
   }
 
   .hero-img {
-    margin-top: -30%;
-    margin-bottom: 10px;
+    margin-top: -10%;
+    margin-bottom: 20px;
   }
 
   .hero-img img {
@@ -460,6 +473,10 @@ nav #btnCon:hover {
   .hero-desc {
     position: relative;
     margin-bottom: 10px;
+  }
+
+  .hero-role {
+    width: 100%;
   }
 
   .hero-btn {
