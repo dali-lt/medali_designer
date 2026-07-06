@@ -1,0 +1,649 @@
+<!doctype html>
+
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="Images/MyFavicon.png" />
+    <title>Mohamed Ali Louati</title>
+    <link rel="stylesheet" href="CSS/Style.css" />
+  </head>
+  <body>
+    <nav>
+      <!-- Links -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#work">Work</a></li>
+      </ul>
+
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <img src="Images/Logopic.png" />
+      </a>
+
+      <!-- Link Boton -->
+      <a href="#contact" id="btnCon">Contact</a>
+
+      <!-- Hamburger -->
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">+</div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <ul>
+        <li>
+          <a href="#home" onclick="toggleMenu()"
+            ><ion-icon name="home-outline"></ion-icon>Home</a
+          >
+        </li>
+        <li>
+          <a href="#about" onclick="toggleMenu()"
+            ><ion-icon name="person-outline"></ion-icon>About</a
+          >
+        </li>
+        <li>
+          <a href="#services" onclick="toggleMenu()"
+            ><ion-icon name="briefcase-outline"></ion-icon>Services</a
+          >
+        </li>
+        <li>
+          <a href="#pricing" onclick="toggleMenu()"
+            ><ion-icon name="pricetag-outline"></ion-icon>Pricing</a
+          >
+        </li>
+        <li>
+          <a href="#work" onclick="toggleMenu()"
+            ><ion-icon name="grid-outline"></ion-icon>Work</a
+          >
+        </li>
+        <li>
+          <a href="#contact" onclick="toggleMenu()"
+            ><ion-icon name="mail-outline"></ion-icon>Contact</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-bg-name">
+        <p class="hero-sub">
+          Hello, <span>I</span><span style="font-family: serif">'</span>m
+        </p>
+        <div class="hero-bg-text">
+          M<span class="letter-o"
+            >O<img
+              src="Images/Artboard 1_ShapeCircle.svg"
+              class="o-circle"
+              aria-hidden="true" /></span
+          >HAMED ALI
+        </div>
+        <div class="hero-bg-text">LOUATI.</div>
+      </div>
+
+      <!-- Image -->
+      <div class="hero-img">
+        <img src="Images/mypic.png" alt="Mohamed Ali" />
+      </div>
+
+      <!-- Text -->
+      <div class="hero-content">
+        <p class="hero-role">Logo & Brand Identity Designer</p>
+        <p class="hero-desc">
+          <span></span><br />
+          I design with clarity and direction.<br />
+          I make sense of complexity.
+        </p>
+        <a href="#work" class="hero-btn">
+          See My Work
+          <ion-icon name="arrow-down-outline" class="btn-arrow"></ion-icon>
+        </a>
+      </div>
+    </section>
+
+    <div class="brand-divider" aria-hidden="true">
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+    </div>
+
+    <!-- My Story Section -->
+    <section id="about" class="story">
+      <div class="story-label">— My Story —</div>
+
+      <div class="story-content">
+        <div class="story-left">
+          <p class="story-origin">
+            Graphic Designer <br />& Content Creator<br />Based in Tunisia
+          </p>
+          <h2 class="story-title">
+            FR<span class="letter-o"
+              >O<img
+                src="Images/Artboard 1_ShapeCircle.svg"
+                class="o-circle"
+                aria-hidden="true" /></span
+            >M MAPS<br />
+            <span class="text-trans">____</span>TO<br />
+            MEANING.
+          </h2>
+        </div>
+
+        <div class="story-right">
+          <p>
+            I'm Mohamed Ali - a visual designer from the world of geomatics,
+            where I learned precision and structure. Design, for me, isn't just
+            a service - it's how I simplify complexity and bring ideas to life.
+          </p>
+
+          <p>
+            My work is rooted in Amazigh heritage - geometric, rhythmic,
+            balanced. A fusion between origin and innovation, built for people
+            with real stories to tell.
+          </p>
+        </div>
+
+        <div class="story-closing">
+          Clear. Authentic. Built for reality — not just aesthetics.
+        </div>
+      </div>
+    </section>
+
+    <div class="brand-divider" aria-hidden="true">
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+    </div>
+
+    <section id="services" class="services">
+      <p class="services-label">— What I Do —</p>
+      <h2 class="services-title">Services <span>I Provide</span></h2>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-accent orange"></div>
+          <div class="service-icon">
+            <ion-icon name="color-palette-outline" class="graorange"></ion-icon>
+          </div>
+          <h3>Graphic Design</h3>
+          <p>Logo Design, Brand Identity, Visual Design, Typography</p>
+          <a href="#contact" class="service-link orange"
+            >Let's Talk <span class="flachorange">→</span></a
+          >
+        </div>
+
+        <div class="service-card">
+          <div class="service-overlay">
+            <ion-icon name="time-outline"></ion-icon>
+            <p>Coming Soon</p>
+            <span class="coming-badge">Available Later</span>
+          </div>
+
+          <div class="service-accent blue"></div>
+          <div class="service-icon">
+            <ion-icon name="code-slash-outline" class="devblue"></ion-icon>
+          </div>
+          <h3>Web Development</h3>
+          <p>Landing Pages, Portfolio Sites, Responsive Design</p>
+          <a href="#contact" class="service-link blue"
+            >Let's Talk <span class="flachblue">→</span></a
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="brand-divider" aria-hidden="true">
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+    </div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+      <p class="pricing-label">— Transparent Pricing —</p>
+      <h2 class="pricing-title">Choose Your <span>Package</span></h2>
+      <p class="pricing-note">
+        All packages require 50% upfront · 50% on delivery
+      </p>
+
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card" onclick="togglePricing(this)">
+          <div class="pricing-header">
+            <span class="pricing-tag">Starter</span>
+            <div class="pricing-price">100 <span>DT</span></div>
+            <ion-icon
+              name="chevron-down-outline"
+              class="pricing-chevron"
+            ></ion-icon>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-deliverables">
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
+                concept)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> PNG + SVG formats
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
+                versions
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="time-outline"></ion-icon> 3–4 days
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="refresh-outline"></ion-icon> 2 revisions
+              </li>
+              <li class="pricing-boundary">
+                <ion-icon name="close-outline"></ion-icon> No brand guide
+              </li>
+              <li class="pricing-boundary">
+                <ion-icon name="close-outline"></ion-icon> No color/typography
+                system
+              </li>
+            </ul>
+            <button
+              class="pricing-btn"
+              onclick="
+                event.stopPropagation();
+                sendPackage('Starter', '100');
+              "
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- Brand Core — Featured -->
+        <div class="pricing-card featured" onclick="togglePricing(this)">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <span class="pricing-tag">Brand Core</span>
+            <div class="pricing-price">150 <span>DT</span></div>
+            <ion-icon
+              name="chevron-down-outline"
+              class="pricing-chevron"
+            ></ion-icon>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-deliverables">
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
+                concept)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> PNG + SVG + PDF
+                formats
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
+                versions
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Color palette
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Typography system
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="time-outline"></ion-icon> 5–7 days
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="refresh-outline"></ion-icon> 3 revisions
+              </li>
+              <li class="pricing-boundary">
+                <ion-icon name="close-outline"></ion-icon> No brand guide PDF
+              </li>
+            </ul>
+            <button
+              class="pricing-btn featured-btn"
+              onclick="
+                event.stopPropagation();
+                sendPackage('Brand Core', '150');
+              "
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- Full Identity -->
+        <div class="pricing-card" onclick="togglePricing(this)">
+          <div class="pricing-header">
+            <span class="pricing-tag">Full Identity</span>
+            <div class="pricing-price">280 <span>DT</span></div>
+            <ion-icon
+              name="chevron-down-outline"
+              class="pricing-chevron"
+            ></ion-icon>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-deliverables">
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
+                concept)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> All formats
+                (PNG/SVG/PDF/AI)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
+                versions
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Full color
+                palette
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Typography system
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Brand guide PDF
+              </li>
+              <li><ion-icon name="checkmark-outline"></ion-icon> 2 mockups</li>
+              <li class="pricing-meta">
+                <ion-icon name="time-outline"></ion-icon> 10–14 days
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="refresh-outline"></ion-icon> 5 revisions
+              </li>
+            </ul>
+            <button
+              class="pricing-btn"
+              onclick="
+                event.stopPropagation();
+                sendPackage('Full Identity', '280');
+              "
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="pricing-footer">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        Not sure which package fits? <a href="#contact">Let's talk first →</a>
+      </p>
+    </section>
+
+    <div class="brand-divider" aria-hidden="true">
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+    </div>
+
+    <!-- Work Section -->
+    <section id="work" class="work">
+      <p class="work-label">— Selected Work —</p>
+      <h2 class="work-title">My <span>Work</span></h2>
+
+      <div class="work-grid">
+        <!-- Branding Folder -->
+        <a
+          href="https://www.behance.net/louatimohamed2"
+          target="_blank"
+          class="folder"
+        >
+          <div class="topOfFolder FolOrange"></div>
+          <div class="folder-tab1"></div>
+          <div class="folder-tab"></div>
+          <div class="folder-body orange">
+            <div class="folder-top">
+              <ion-icon name="folder-open-outline"></ion-icon>
+              <span class="folder-count">04 Projects</span>
+            </div>
+            <h3>Brand Identity</h3>
+            <p>Personal Brand · Waq3 · Oumyaé · No Name</p>
+            <div class="folder-ext-link">
+              <ion-icon name="logo-behance"></ion-icon>
+              <span>View on Behance</span>
+              <ion-icon
+                name="open-outline"
+                class="folder-arrow-icon"
+              ></ion-icon>
+            </div>
+          </div>
+        </a>
+
+        <!-- Web Dev Folder -->
+        <a href="https://github.com/dali-lt" target="_blank" class="folder">
+          <div class="topOfFolder FolBlue"></div>
+          <div class="folder-tab1"></div>
+          <div class="folder-tab"></div>
+          <div class="folder-body blue">
+            <div class="folder-top">
+              <ion-icon name="folder-open-outline"></ion-icon>
+              <span class="folder-count">01 Project</span>
+            </div>
+            <h3>Web Development</h3>
+            <p>This Portfolio — First Project</p>
+            <div class="folder-ext-link">
+              <ion-icon name="logo-github"></ion-icon>
+              <span>View on GitHub</span>
+              <ion-icon
+                name="open-outline"
+                class="folder-arrow-icon"
+              ></ion-icon>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <div class="work-cta">
+        <p>Have a project in mind?</p>
+        <a
+          href="https://dali-lt.github.io/brand-brief/"
+          target="_blank"
+          class="work-cta-btn"
+        >
+          Start a Project <ion-icon name="arrow-forward-outline"></ion-icon>
+        </a>
+      </div>
+    </section>
+
+    <div class="brand-divider" aria-hidden="true">
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+    </div>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+      <p class="reviews-label">— Client Reviews —</p>
+      <h2 class="reviews-title">What Clients <span>Say</span></h2>
+      <p class="reviews-verify-note">
+        <ion-icon name="logo-instagram"></ion-icon>
+        Reviews verified on Instagram - visit
+        <a href="https://www.instagram.com/design_medali/" target="_blank"
+          >@design_medali</a
+        >
+        and tap the <strong>"Reviews"</strong> highlight to confirm
+      </p>
+
+      <div class="reviews-carousel">
+        <div class="reviews-track" id="reviewsTrack">
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text" lang="ar">
+              ❝ y3ychik 5oya l4ali ay ay 7louwa 3le5ir 3le5ir ...</br>
+            C confirmé</br>
+            Ab3athli❞
+            </p>
+            <div class="review-author">
+              <span class="review-name">Houss Boumnijel</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text" lang="ar">
+              ❝ ❤️❤️❤️❤️❤️<br />يعطيك صحة<br />يعطيك صحة<br />حاجة simple و حلوة
+              برشا<br />👏👏👏👏👏 ❞
+            </p>
+            <div class="review-author">
+              <span class="review-name">Jalloul 🇹🇳</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text">
+              ❝ Smhni kontt fil..</br>
+            Vraiment mhleek wlh w..</br>
+            W yaatik allf saha❤️ ❞
+            </p>
+            <div class="review-author">
+              <span class="review-name">Delleli.</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text" lang="ar">
+              ❝ 7lowa❞
+            </p>
+            <div class="review-author">
+              <span class="review-name">Amal Plus</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text" lang="ar">
+              ❝ Rk fannen</br>
+            ....</br>
+            w merci bcp </br></br>
+            Heyel merci 3lik walhhh w...</br>
+            w merci bcp ena ch5siyyan fr7tni🌟🌟🌟</br>
+            W et surtout ws3t blk m3ya❞
+            </p>
+            <div class="review-author">
+              <span class="review-name">+216 .. ... ...</span>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-text" lang="ar">
+              ❝Hlwaa dali khedma ...</br>
+            Ama yaatik Saha thank u card o kol hoowaaa</br>
+            loun tahfoun❞
+            </p>
+            <div class="review-author">
+              <span class="review-name">Khalil Bm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reviews-controls">
+        <button class="rev-btn" onclick="moveReviews(-1)">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </button>
+        <div class="reviews-dots" id="reviewsDots"></div>
+        <button class="rev-btn" onclick="moveReviews(1)">
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+    </section>
+
+    <div class="brand-divider" aria-hidden="true">
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="contact-left">
+        <p class="contact-label">— Contact —</p>
+        <h2 class="contact-title">Get In<br /><span>Touch.</span></h2>
+        <p class="contact-sub">
+          Ready to build something clear and meaningful?
+        </p>
+
+        <div class="contact-info">
+          <a href="mailto:medalilt.freelance@gmail.com">
+            <div class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+              <div>
+                <p class="info-label">Email</p>
+                <p class="instaTag">medalilt.pro@gmail.com</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/design_medali" target="_blank">
+            <div class="contact-item">
+              <ion-icon name="logo-instagram"></ion-icon>
+              <div>
+                <p class="info-label">Instagram</p>
+                <p class="instaTag">@design_medali</p>
+              </div>
+            </div>
+          </a>
+
+          <div class="contact-item">
+            <ion-icon name="location-outline"></ion-icon>
+            <div>
+              <p class="info-label">Location</p>
+              <p>Bizerte, Tunisia</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-right">
+        <select
+          class="contact-input"
+          id="serviceSelect"
+          onchange="checkService()"
+        >
+          <option value="">Select a Service</option>
+          <option value="Graphic Design">Graphic Design</option>
+          <option value="Web Development">Web Development</option>
+        </select>
+
+        <div class="service-alert" id="serviceAlert">
+          <ion-icon name="warning-outline"></ion-icon>
+          This service is not available yet.
+        </div>
+        <input type="text" placeholder="Name" class="contact-input" />
+        <input type="email" placeholder="Email" class="contact-input" />
+        <textarea placeholder="Message" class="contact-textarea"></textarea>
+        <button class="contact-btn" onclick="sendWhatsApp()">Submit</button>
+        <p class="contact-whatsapp-note">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+          Messages are sent directly via WhatsApp
+        </p>
+      </div>
+    </section>
+
+    <script src="JS/Script.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
