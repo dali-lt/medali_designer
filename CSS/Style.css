@@ -334,11 +334,10 @@ nav #btnCon:hover {
   position: absolute;
   bottom: 5px;
   left: 5px;
-  width: 165px;
+  width: 165px;ar
   font-size: 13px;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
-  background: rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
 }
 
@@ -350,7 +349,7 @@ nav #btnCon:hover {
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
   text-transform: none;
-  
+  background: var(--black);
 }
 
 .hero-desc span {
