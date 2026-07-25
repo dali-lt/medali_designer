@@ -334,7 +334,7 @@ nav #btnCon:hover {
   position: absolute;
   bottom: 5px;
   left: 5px;
-  width: 165px;ar
+  width: 165px;
   font-size: 13px;
   letter-spacing: 2px;
   color: rgba(255, 255, 255, 0.5);
@@ -492,8 +492,12 @@ nav #btnCon:hover {
     margin-bottom: 10px;
   }
 
-  .hero-role {
+  .hero-role,
+  .hero-desc {
     width: 100%;
+    right: auto;
+    left: auto;
+    background: transparent;
   }
 
   .hero-btn {
@@ -768,6 +772,50 @@ section.visible,
   text-align: center;
 }
 
+/* Background image */
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../Images/Grid_SectService.jpg") center/cover no-repeat;
+  opacity: 0.5;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.12;
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    );
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to right,
+      transparent 0%,
+      var(--black) 5%,
+      var(--black) 95%,
+      transparent 100%
+    );
+  mask-composite: intersect;
+}
+
 .services-label {
   font-size: 12px;
   letter-spacing: 3px;
@@ -790,26 +838,46 @@ section.visible,
 
 /* Grid */
 .services-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
+  text-align: center;
+}
+
+.service-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.service-card .service-link {
+  /*display: flex;
+  justify-content: center;*/
+  display: inline-block;
+  margin-top: 8px;
+  padding: 14px 32px;
+  background: var(--orange);
+  color: var(--black);
+  text-decoration: none;
+  /*font-size: 13px;
+  font-weight: 600;*/
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: background 0.3s;
 }
 
 /* Card */
 .service-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 40px 32px;
-  text-align: left;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
   position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
+  overflow: visible;
+  transition: none;
 }
 
 .service-overlay {
@@ -853,10 +921,6 @@ section.visible,
   text-transform: uppercase;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
-}
-
 /* Web dev card: overlay always visible */
 .service-card:has(.service-overlay) .service-overlay {
   opacity: 1;
@@ -868,12 +932,7 @@ section.visible,
 
 /* Accent line top */
 .service-accent {
-  position: absolute;
-  top: 0;
-  left: 32px;
-  width: 40px;
-  height: 4px;
-  border-radius: 0 0 4px 4px;
+  display: none;
 }
 
 .service-accent.orange {
@@ -887,18 +946,17 @@ section.visible,
   font-size: 36px;
 }
 
-.flachorange,
+.flachorange {
+  color: var(--black);
+}
 .service-icon .graorange {
   color: var(--orange);
 }
 
-.flachblue,
-.service-icon .devblue {
-  color: var(--blue);
-}
-
 .service-card h3 {
-  font-size: 20px;
+  font-size: 40px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   font-weight: 700;
   color: var(--white);
 }
@@ -907,6 +965,14 @@ section.visible,
   font-size: 14px;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.8;
+}
+
+.service-card .service-note {
+  font-size: 12px;
+  color: var(--orange);
+  font-style: italic;
+  margin-top: -8px;
+  font-weight: 600;
 }
 
 .service-link {
@@ -918,13 +984,13 @@ section.visible,
   margin-top: 8px;
   transition: color 0.2s;
 }
-
-.service-link.orange:hover {
+.service-link:hover .flachorange {
   color: var(--orange);
 }
-
-.service-link.blue:hover {
-  color: var(--blue);
+.service-link.orange:hover {
+  border: 1px solid var(--orange);
+  background: none;
+  color: var(--orange);
 }
 
 /* Mobile */

@@ -115,17 +115,11 @@
   function checkService() {
     const select = document.getElementById('serviceSelect');
     const alert = document.getElementById('serviceAlert');
-  
-    if (select.value === 'Web Development') {
-      alert.classList.add('show');
-    } else {
-      alert.classList.remove('show');
-    }
+    alert.classList.remove('show');
    }
   
   function sendWhatsApp() {
     const select = document.getElementById('serviceSelect');
-    if (select.value === 'Web Development') return;
     
     const name = document.querySelector('input[placeholder="Name"]').value;
     const email = document.querySelector('input[placeholder="Email"]').value;
