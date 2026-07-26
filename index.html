@@ -41,11 +41,6 @@
     <div class="sidebar" id="sidebar">
       <ul>
         <li>
-          <a href="#home" onclick="toggleMenu()"
-            ><ion-icon name="home-outline"></ion-icon>Home</a
-          >
-        </li>
-        <li>
           <a href="#about" onclick="toggleMenu()"
             ><ion-icon name="person-outline"></ion-icon>About</a
           >
@@ -170,15 +165,22 @@
       <p class="services-label">— What I Do —</p>
       <h2 class="services-title">Services <span>I Provide</span></h2>
 
+      <div class="services-hero" aria-hidden="false">
+        <img
+          src="Images/Artboard 1_ShapePlus1.svg"
+          class="services-hero-circle"
+          aria-hidden="true"
+        />
+        <h3 class="services-huge">Brand<br />Identity</h3>
+      </div>
+
       <div class="services-grid">
         <div class="service-card">
-          <div class="service-accent orange"></div>
-          <div class="service-icon">
-            <ion-icon name="color-palette-outline" class="graorange"></ion-icon>
-          </div>
-          <h3>Brand Identity</h3>
           <p>Logo Design · Brand Guidelines · Packaging Design · Social Media Design</p>
-          <p class="service-note">Available individually or as a complete package.</p>
+          <p class="service-note">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            Available individually or as a complete package.
+          </p>
           <a href="#contact" class="service-link orange"
             >Let's Talk <span class="flachorange">→</span></a
           >
