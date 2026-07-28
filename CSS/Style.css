@@ -79,6 +79,7 @@ body.no-scroll {
   --teal: #447980;
   --blue: #9ed2e3;
   --white: #ececec;
+  --page-margin: 50px;
 }
 
 @media (max-width: 1024px) {
@@ -189,6 +190,9 @@ nav #btnCon:hover {
 
 /* Mobile */
 @media (max-width: 768px) {
+  :root {
+    --page-margin: 10px;
+  }
   body {
     margin: 10px;
   }
@@ -2430,12 +2434,9 @@ section.visible,
    Marquee Divider (name band)
    ============================ */
 .marquee-wrap {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  width: calc(100% + (2 * var(--page-margin)));
+  margin-left: calc(-1 * var(--page-margin));
+  margin-right: calc(-1 * var(--page-margin));
   overflow: hidden;
   padding: 36px 0;
 }
