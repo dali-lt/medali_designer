@@ -2462,24 +2462,22 @@ section.visible,
   display: flex;
   align-items: center;
   width: max-content;
-  padding: 16px 0;
+  padding: 5px 0;
   animation: marqueeScroll 24s linear infinite;
 }
 
 .marquee-item {
   font-size: 22px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  /*font-weight: 800;
+  text-transform: uppercase;*/
+  letter-spacing: -2px;
   color: var(--black);
   white-space: nowrap;
-  padding: 0 20px;
+  padding: 0 30px;
 }
 
-.marquee-dot {
-  font-size: 13px;
-  color: var(--black);
-  opacity: 0.55;
+.marquee-dot img {
+  width: 10px;
 }
 
 @keyframes marqueeScroll {
