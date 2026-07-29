@@ -2447,7 +2447,7 @@ section.visible,
   margin-left: calc(-1 * var(--page-margin));
   margin-right: calc(-1 * var(--page-margin));
   overflow: hidden;
-  padding: 36px 0;
+  padding: 90px 0;
 }
 
 .marquee-divider {
@@ -2455,7 +2455,6 @@ section.visible,
   width: 112%;
   margin-left: -6%;
   transform: rotate(-2deg);
-  box-shadow: 0 10px 34px rgba(255, 63, 26, 0.3);
   overflow: hidden;
 }
 
@@ -2494,7 +2493,7 @@ section.visible,
 
 @media (max-width: 768px) {
   .marquee-wrap {
-    padding: 24px 0;
+    padding: 50px 0;
   }
   .marquee-divider {
     width: 130%;
