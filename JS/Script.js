@@ -1,4 +1,44 @@
-// Reviews Carousel
+// Portfolio Lightbox Gallery
+  const galleryImages = Array.from({ length: 20 }, (_, i) =>
+    `Images/gallery/slide-${String(i + 1).padStart(2, '0')}.png`
+  );
+  let currentSlide = 0;
+  const lightbox = document.getElementById('portfolioLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+
+  function openGallery(index) {
+    currentSlide = index;
+    updateLightboxImage();
+    lightbox.classList.add('open');
+    document.body.classList.add('no-scroll');
+    document.documentElement.classList.add('no-scroll');
+  }
+
+  function closeGallery() {
+    lightbox.classList.remove('open');
+    document.body.classList.remove('no-scroll');
+    document.documentElement.classList.remove('no-scroll');
+  }
+
+  function galleryNav(dir) {
+    currentSlide = (currentSlide + dir + galleryImages.length) % galleryImages.length;
+    updateLightboxImage();
+  }
+
+  function updateLightboxImage() {
+    lightboxImg.src = galleryImages[currentSlide];
+    lightboxCounter.textContent = `${currentSlide + 1} / ${galleryImages.length}`;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowRight') galleryNav(1);
+    if (e.key === 'ArrowLeft') galleryNav(-1);
+  });
+
+  // Reviews Carousel
   let currentReview = 0;
   const track = document.getElementById('reviewsTrack');
   const cards = track ? track.querySelectorAll('.review-card') : [];

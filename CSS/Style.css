@@ -1260,14 +1260,14 @@ section.visible,
   align-items: center;
   gap: 10px;
   padding: 14px 32px;
-  border: 1px solid var(--orange);
-  color: var(--orange);
+  border: none;
+  background: var(--orange);
+  color: var(--black);
   text-decoration: none;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 4px;
   transition: all 0.3s ease;
 }
 
@@ -1277,8 +1277,9 @@ section.visible,
 }
 
 .work-cta-btn:hover {
-  background: var(--orange);
-  color: var(--black);
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  background: none;
 }
 
 .work-cta-btn:hover ion-icon {
@@ -1303,7 +1304,9 @@ section.visible,
   overflow: hidden;
   text-align: left;
   cursor: pointer;
-  transition: transform 0.3s ease, border-color 0.3s ease,
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
     box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -1428,6 +1431,7 @@ section.visible,
 
 .behance-link {
   margin-top: 10px;
+  padding: 0 5px;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -1438,6 +1442,12 @@ section.visible,
   color: var(--white);
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   padding-bottom: 2px;
+}
+
+.behance-link ion-icon {
+  margin-left: 10px;
+  font-size: 15px;
+  margin-bottom: 0;
 }
 
 .project-card-behance:hover {
@@ -1482,7 +1492,6 @@ section.visible,
 .lightbox-content img {
   max-width: 100%;
   max-height: 100%;
-  border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   user-select: none;
   animation: lightboxFade 0.25s ease;
