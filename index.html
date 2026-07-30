@@ -21,8 +21,8 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#pricing">Pricing</a></li>
         <li><a href="#work">Work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
       </ul>
 
       <!-- Logo -->
@@ -51,13 +51,13 @@
           >
         </li>
         <li>
-          <a href="#pricing" onclick="toggleMenu()"
-            ><ion-icon name="pricetag-outline"></ion-icon>Pricing</a
+          <a href="#work" onclick="toggleMenu()"
+            ><ion-icon name="grid-outline"></ion-icon>Work</a
           >
         </li>
         <li>
-          <a href="#work" onclick="toggleMenu()"
-            ><ion-icon name="grid-outline"></ion-icon>Work</a
+          <a href="#pricing" onclick="toggleMenu()"
+            ><ion-icon name="pricetag-outline"></ion-icon>Pricing</a
           >
         </li>
         <li>
@@ -221,182 +221,6 @@
     </div>
 
     <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-      <p class="pricing-label">— Transparent Pricing —</p>
-      <h2 class="pricing-title">Choose Your <span>Package</span></h2>
-      <p class="pricing-note">
-        All packages require 50% upfront · 50% on delivery
-      </p>
-
-      <div class="pricing-grid">
-        <!-- Starter -->
-        <div class="pricing-card" onclick="togglePricing(this)">
-          <div class="pricing-header">
-            <span class="pricing-tag">Starter</span>
-            <div class="pricing-price">100 <span>DT</span></div>
-            <ion-icon
-              name="chevron-down-outline"
-              class="pricing-chevron"
-            ></ion-icon>
-          </div>
-          <div class="pricing-body">
-            <ul class="pricing-deliverables">
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
-                concept)
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> PNG + SVG formats
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
-                versions
-              </li>
-              <li class="pricing-meta">
-                <ion-icon name="time-outline"></ion-icon> 3–4 days
-              </li>
-              <li class="pricing-meta">
-                <ion-icon name="refresh-outline"></ion-icon> 2 revisions
-              </li>
-              <li class="pricing-boundary">
-                <ion-icon name="close-outline"></ion-icon> No brand guide
-              </li>
-              <li class="pricing-boundary">
-                <ion-icon name="close-outline"></ion-icon> No color/typography
-                system
-              </li>
-            </ul>
-            <button
-              class="pricing-btn"
-              onclick="
-                event.stopPropagation();
-                sendPackage('Starter', '100');
-              "
-            >
-              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
-            </button>
-          </div>
-        </div>
-
-        <!-- Brand Core — Featured -->
-        <div class="pricing-card featured" onclick="togglePricing(this)">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-header">
-            <span class="pricing-tag">Brand Core</span>
-            <div class="pricing-price">150 <span>DT</span></div>
-            <ion-icon
-              name="chevron-down-outline"
-              class="pricing-chevron"
-            ></ion-icon>
-          </div>
-          <div class="pricing-body">
-            <ul class="pricing-deliverables">
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
-                concept)
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> PNG + SVG + PDF
-                formats
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
-                versions
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Color palette
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Typography system
-              </li>
-              <li class="pricing-meta">
-                <ion-icon name="time-outline"></ion-icon> 5–7 days
-              </li>
-              <li class="pricing-meta">
-                <ion-icon name="refresh-outline"></ion-icon> 3 revisions
-              </li>
-              <li class="pricing-boundary">
-                <ion-icon name="close-outline"></ion-icon> No brand guide PDF
-              </li>
-            </ul>
-            <button
-              class="pricing-btn featured-btn"
-              onclick="
-                event.stopPropagation();
-                sendPackage('Brand Core', '150');
-              "
-            >
-              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
-            </button>
-          </div>
-        </div>
-
-        <!-- Full Identity -->
-        <div class="pricing-card" onclick="togglePricing(this)">
-          <div class="pricing-header">
-            <span class="pricing-tag">Full Identity</span>
-            <div class="pricing-price">280 <span>DT</span></div>
-            <ion-icon
-              name="chevron-down-outline"
-              class="pricing-chevron"
-            ></ion-icon>
-          </div>
-          <div class="pricing-body">
-            <ul class="pricing-deliverables">
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
-                concept)
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> All formats
-                (PNG/SVG/PDF/AI)
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
-                versions
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Full color
-                palette
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Typography system
-              </li>
-              <li>
-                <ion-icon name="checkmark-outline"></ion-icon> Brand guide PDF
-              </li>
-              <li><ion-icon name="checkmark-outline"></ion-icon> 2 mockups</li>
-              <li class="pricing-meta">
-                <ion-icon name="time-outline"></ion-icon> 10–14 days
-              </li>
-              <li class="pricing-meta">
-                <ion-icon name="refresh-outline"></ion-icon> 5 revisions
-              </li>
-            </ul>
-            <button
-              class="pricing-btn"
-              onclick="
-                event.stopPropagation();
-                sendPackage('Full Identity', '280');
-              "
-            >
-              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <p class="pricing-footer">
-        <ion-icon name="information-circle-outline"></ion-icon>
-        Not sure which package fits? <a href="#contact">Let's talk first →</a>
-      </p>
-    </section>
-
-    <div class="brand-divider" aria-hidden="true">
-      <img src="Images/Artboard 1_ShapePlus.svg" />
-      <img src="Images/Artboard 1_ShapePlus.svg" />
-      <img src="Images/Artboard 1_ShapePlus.svg" />
-    </div>
 
     <!-- Work Section -->
     <section id="work" class="work">
@@ -652,6 +476,247 @@
           <ion-icon name="arrow-forward-outline"></ion-icon>
         </button>
       </div>
+    </section>
+
+    <div class="brand-divider" aria-hidden="true">
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+      <img src="Images/Artboard 1_ShapePlus.svg" />
+    </div>
+
+    <section id="pricing" class="pricing">
+      <p class="pricing-label">— Transparent Pricing —</p>
+      <h2 class="pricing-title">Choose Your <span>Package</span></h2>
+      <p class="pricing-note">
+        All packages require 50% upfront · 50% on delivery
+      </p>
+
+      <div class="pricing-grid">
+        <!-- Starter -->
+        <div class="pricing-card" onclick="togglePricing(this)">
+          <div class="pricing-header">
+            <span class="pricing-tag">Starter</span>
+            <div class="pricing-price">100 <span>DT</span></div>
+            <ion-icon
+              name="chevron-down-outline"
+              class="pricing-chevron"
+            ></ion-icon>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-deliverables">
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
+                concept)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> PNG + SVG formats
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
+                versions
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="time-outline"></ion-icon> 3–4 days
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="refresh-outline"></ion-icon> 2 revisions
+              </li>
+              <li class="pricing-boundary">
+                <ion-icon name="close-outline"></ion-icon> No brand guide
+              </li>
+              <li class="pricing-boundary">
+                <ion-icon name="close-outline"></ion-icon> No color/typography
+                system
+              </li>
+            </ul>
+            <button
+              class="pricing-btn"
+              onclick="
+                event.stopPropagation();
+                sendPackage('Starter', '100');
+              "
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- Brand Core — Featured -->
+        <div class="pricing-card featured" onclick="togglePricing(this)">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <span class="pricing-tag">Brand Core</span>
+            <div class="pricing-price">150 <span>DT</span></div>
+            <ion-icon
+              name="chevron-down-outline"
+              class="pricing-chevron"
+            ></ion-icon>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-deliverables">
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
+                concept)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> PNG + SVG + PDF
+                formats
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
+                versions
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Color palette
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Typography system
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="time-outline"></ion-icon> 5–7 days
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="refresh-outline"></ion-icon> 3 revisions
+              </li>
+              <li class="pricing-boundary">
+                <ion-icon name="close-outline"></ion-icon> No brand guide PDF
+              </li>
+            </ul>
+            <button
+              class="pricing-btn featured-btn"
+              onclick="
+                event.stopPropagation();
+                sendPackage('Brand Core', '150');
+              "
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
+            </button>
+          </div>
+        </div>
+
+        <!-- Full Identity -->
+        <div class="pricing-card" onclick="togglePricing(this)">
+          <div class="pricing-header">
+            <span class="pricing-tag">Full Identity</span>
+            <div class="pricing-price">280 <span>DT</span></div>
+            <ion-icon
+              name="chevron-down-outline"
+              class="pricing-chevron"
+            ></ion-icon>
+          </div>
+          <div class="pricing-body">
+            <ul class="pricing-deliverables">
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Logo design (1
+                concept)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> All formats
+                (PNG/SVG/PDF/AI)
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Light & dark
+                versions
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Full color
+                palette
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Typography system
+              </li>
+              <li>
+                <ion-icon name="checkmark-outline"></ion-icon> Brand guide PDF
+              </li>
+              <li><ion-icon name="checkmark-outline"></ion-icon> 2 mockups</li>
+              <li class="pricing-meta">
+                <ion-icon name="time-outline"></ion-icon> 10–14 days
+              </li>
+              <li class="pricing-meta">
+                <ion-icon name="refresh-outline"></ion-icon> 5 revisions
+              </li>
+            </ul>
+            <button
+              class="pricing-btn"
+              onclick="
+                event.stopPropagation();
+                sendPackage('Full Identity', '280');
+              "
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="addon-section">
+        <p class="addon-label">Already have a brand?</p>
+        <div class="addon-grid">
+          <!-- Packaging Design -->
+          <div class="addon-card">
+            <div class="addon-top">
+              <ion-icon name="cube-outline"></ion-icon>
+              <span class="addon-title">Packaging Design</span>
+              <span class="addon-price">150–180 <span>DT</span></span>
+            </div>
+            <p class="addon-desc">
+              Box + Label + Bag design, with custom illustration when needed.
+            </p>
+            <div class="addon-meta">
+              <span><ion-icon name="checkmark-outline"></ion-icon> PNG + PDF (print-ready)</span>
+              <span><ion-icon name="checkmark-outline"></ion-icon> 2 revisions</span>
+              <span><ion-icon name="time-outline"></ion-icon> Depends on project size</span>
+            </div>
+            <button
+              class="addon-btn"
+              onclick="sendAddonQuote('Packaging Design', '150–180')"
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get a Quote
+            </button>
+          </div>
+
+          <!-- Social Media Design -->
+          <div class="addon-card">
+            <div class="addon-top">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+              <span class="addon-title">Social Media Design</span>
+              <span class="addon-price">120–150 <span>DT</span></span>
+            </div>
+            <p class="addon-desc">
+              5–8 post templates + story templates, matching your existing
+              brand.
+            </p>
+            <div class="addon-meta">
+              <span><ion-icon name="checkmark-outline"></ion-icon> Editable source file</span>
+              <span><ion-icon name="checkmark-outline"></ion-icon> 2 revisions</span>
+              <span><ion-icon name="time-outline"></ion-icon> Depends on project size</span>
+            </div>
+            <button
+              class="addon-btn"
+              onclick="sendAddonQuote('Social Media Design', '120–150')"
+            >
+              <ion-icon name="logo-whatsapp"></ion-icon> Get a Quote
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-brief-cta">
+        <p>Ready to start? Fill out your project details in advance —</p>
+        <a
+          href="https://dali-lt.github.io/brand-brief/"
+          target="_blank"
+          class="work-cta-btn"
+        >
+          Fill the Brand Discovery Brief
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </a>
+      </div>
+
+      <p class="pricing-footer">
+        <ion-icon name="information-circle-outline"></ion-icon>
+        Not sure which package fits? <a href="#contact">Let's talk first →</a>
+      </p>
     </section>
 
     <div class="brand-divider" aria-hidden="true">

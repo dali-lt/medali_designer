@@ -1816,8 +1816,7 @@ section.visible,
 /* Submit Button */
 .contact-btn {
   background: var(--orange);
-  border: 1px solid var(--orange);
-  border-radius: 10px;
+  border: none;
   padding: 16px;
   color: var(--black);
   font-size: 14px;
@@ -1875,7 +1874,7 @@ section.visible,
 .contact-btn:hover {
   background: transparent;
   color: var(--orange);
-  border-color: var(--orange);
+  border: 1px solid var(--orange);
 }
 
 /* Mobile */
@@ -2509,5 +2508,153 @@ section.visible,
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+}
+
+/* ============================
+   Pricing → Brand Brief CTA
+   ============================ */
+.pricing-brief-cta {
+  text-align: center;
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.pricing-brief-cta p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+@media (max-width: 768px) {
+  .pricing-brief-cta {
+    margin-top: 40px;
+  }
+}
+
+/* ============================
+   Pricing Add-Ons (compact)
+   ============================ */
+.addon-section {
+  max-width: 900px;
+  margin: 56px auto 0;
+}
+
+.addon-label {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 16px;
+}
+
+.addon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.addon-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addon-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addon-top ion-icon {
+  font-size: 18px;
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.addon-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  flex: 1;
+}
+
+.addon-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--orange);
+  white-space: nowrap;
+}
+
+.addon-price span {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.addon-desc {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.addon-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 4px;
+}
+
+.addon-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.addon-meta ion-icon {
+  font-size: 12px;
+  color: var(--orange);
+}
+
+.addon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.addon-btn:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.addon-btn ion-icon {
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .addon-grid {
+    grid-template-columns: 1fr;
   }
 }

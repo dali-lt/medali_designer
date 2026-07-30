@@ -152,6 +152,18 @@
     }, 100);
   }
 
+  function sendAddonQuote(name, priceRange) {
+    const message = `مرحبا Med Ali! 
+
+حابب نعرف أكثر على خدمة *${name}* (نطاق السعر: ${priceRange} دينار حسب حجم المشروع).
+
+هذا تفاصيل المشروع متاعي:
+- 
+
+نستناو ردك باش نحددو السعر النهائي والمدة بالضبط 🙌`;
+    window.open(`https://wa.me/21692131604?text=${encodeURIComponent(message)}`, '_blank');
+  }
+
   function checkService() {
     const select = document.getElementById('serviceSelect');
     const alert = document.getElementById('serviceAlert');
