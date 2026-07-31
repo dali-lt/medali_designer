@@ -1632,13 +1632,14 @@ section.visible,
   background: var(--orange);
   border: none;
   padding: 8px 16px;
-  border-radius: 999px;
   cursor: pointer;
   transition: background 0.2s ease;
 }
 
 .lightbox-full-btn:hover {
-  background: var(--white);
+  background: none;
+  border: 1px solid var(--orange);
+  color: var(--orange);
 }
 
 .lightbox-full-btn ion-icon {
