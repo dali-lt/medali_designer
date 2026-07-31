@@ -229,7 +229,7 @@
 
       <div class="projects-grid">
         <!-- WAQ3 -->
-        <div class="project-card" onclick="openGallery(2)">
+        <div class="project-card" onclick="openGallery(2, 4)">
           <div class="project-cover">
             <img
               src="Images/Projects/waq3-cover.png"
@@ -249,7 +249,7 @@
         </div>
 
         <!-- Oumyaé -->
-        <div class="project-card" onclick="openGallery(5)">
+        <div class="project-card" onclick="openGallery(5, 7)">
           <div class="project-cover">
             <img
               src="Images/Projects/oumyae-cover.png"
@@ -269,7 +269,7 @@
         </div>
 
         <!-- No Name -->
-        <div class="project-card" onclick="openGallery(8)">
+        <div class="project-card" onclick="openGallery(8, 10)">
           <div class="project-cover">
             <img
               src="Images/Projects/noname-cover.png"
@@ -289,7 +289,7 @@
         </div>
 
         <!-- Accessoires Plus -->
-        <div class="project-card" onclick="openGallery(11)">
+        <div class="project-card" onclick="openGallery(11, 14)">
           <div class="project-cover">
             <img
               src="Images/Projects/accessoiresplus-cover.png"
@@ -309,7 +309,7 @@
         </div>
 
         <!-- Tounsi Food -->
-        <div class="project-card" onclick="openGallery(15)">
+        <div class="project-card" onclick="openGallery(15, 17)">
           <div class="project-cover">
             <img
               src="Images/Projects/tounsifood-cover.png"
@@ -348,9 +348,18 @@
 
       <div class="work-cta">
         <p>Want to see it all in one place?</p>
-        <button type="button" class="work-cta-btn" onclick="openGallery(0)">
-          View Full Portfolio <ion-icon name="arrow-forward-outline"></ion-icon>
-        </button>
+        <div class="work-cta-row">
+          <button type="button" class="work-cta-btn" onclick="openGallery(0)">
+            View Full Portfolio <ion-icon name="arrow-forward-outline"></ion-icon>
+          </button>
+          <a
+            href="Files/Logofolio2026_V02.pdf"
+            download
+            class="work-cta-btn outline"
+          >
+            <ion-icon name="download-outline"></ion-icon> Download PDF
+          </a>
+        </div>
       </div>
     </section>
 
@@ -361,6 +370,14 @@
         <button class="lightbox-close" onclick="closeGallery()" aria-label="Close">
           <ion-icon name="close-outline"></ion-icon>
         </button>
+        <a
+          href="Files/Logofolio2026_V02.pdf"
+          download
+          class="lightbox-download"
+          aria-label="Download Portfolio PDF"
+        >
+          <ion-icon name="download-outline"></ion-icon>
+        </a>
         <button class="lightbox-nav lightbox-prev" onclick="galleryNav(-1)" aria-label="Previous">
           <ion-icon name="chevron-back-outline"></ion-icon>
         </button>
@@ -369,6 +386,13 @@
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </button>
         <div class="lightbox-counter"><span id="lightboxCounter">1 / 20</span></div>
+        <button
+          class="lightbox-full-btn"
+          id="lightboxFullBtn"
+          onclick="openFullPortfolio()"
+        >
+          <span>View Full Portfolio</span> <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
       </div>
     </div>
 

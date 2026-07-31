@@ -3,16 +3,27 @@
     `Images/gallery/slide-${String(i + 1).padStart(2, '0')}.png`
   );
   let currentSlide = 0;
+  let galleryStart = 0;
+  let galleryEnd = galleryImages.length - 1;
   const lightbox = document.getElementById('portfolioLightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCounter = document.getElementById('lightboxCounter');
+  const lightboxFullBtn = document.getElementById('lightboxFullBtn');
 
-  function openGallery(index) {
+  function openGallery(index, endIndex) {
+    galleryStart = index;
+    galleryEnd = typeof endIndex === 'number' ? endIndex : galleryImages.length - 1;
     currentSlide = index;
     updateLightboxImage();
     lightbox.classList.add('open');
     document.body.classList.add('no-scroll');
     document.documentElement.classList.add('no-scroll');
+  }
+
+  function openFullPortfolio() {
+    galleryStart = 0;
+    galleryEnd = galleryImages.length - 1;
+    updateLightboxImage();
   }
 
   function closeGallery() {
@@ -22,13 +33,19 @@
   }
 
   function galleryNav(dir) {
-    currentSlide = (currentSlide + dir + galleryImages.length) % galleryImages.length;
+    currentSlide += dir;
+    if (currentSlide > galleryEnd) currentSlide = galleryStart;
+    if (currentSlide < galleryStart) currentSlide = galleryEnd;
     updateLightboxImage();
   }
 
   function updateLightboxImage() {
     lightboxImg.src = galleryImages[currentSlide];
-    lightboxCounter.textContent = `${currentSlide + 1} / ${galleryImages.length}`;
+    const scopedTotal = galleryEnd - galleryStart + 1;
+    const scopedIndex = currentSlide - galleryStart + 1;
+    lightboxCounter.textContent = `${scopedIndex} / ${scopedTotal}`;
+    const isFullRange = galleryStart === 0 && galleryEnd === galleryImages.length - 1;
+    lightboxFullBtn.style.display = isFullRange ? 'none' : 'flex';
   }
 
   document.addEventListener('keydown', (e) => {
