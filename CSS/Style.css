@@ -1856,6 +1856,48 @@ section.visible,
   color: var(--orange);
 }
 
+/* Instagram + LinkedIn row */
+.contact-row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.contact-row-main {
+  flex: 1;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.contact-row-main .contact-item {
+  height: 100%;
+}
+
+.contact-item-icon-only {
+  flex-shrink: 0;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.contact-item-icon-only svg {
+  width: 20px;
+  height: 20px;
+  color: var(--orange);
+}
+
+.contact-item.link:hover,
+.contact-item-icon-only:hover {
+  border-color: var(--orange);
+  background: rgba(255, 63, 26, 0.08);
+}
+
 /* Right — Form */
 .contact-right {
   flex: 1.2;
