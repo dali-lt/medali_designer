@@ -98,9 +98,80 @@
   function togglePricing(card) {
     if (window.innerWidth >= 1024) return;
     const isOpen = card.classList.contains('open');
-    document.querySelectorAll('.pricing-card').forEach(c => c.classList.remove('open'));
-    if (!isOpen) card.classList.add('open');
+    document.querySelectorAll('.pricing-card').forEach(c => {
+      c.classList.remove('open');
+      c.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
+    }
   }
+
+  // Addon cards (Packaging / Social Media) collapse the same way as
+  // pricing cards on mobile, and are linked the same way too — opening
+  // one closes the other.
+  function toggleAddon(card) {
+    if (window.innerWidth >= 641) return;
+    const isOpen = card.classList.contains('open');
+    document.querySelectorAll('.addon-card').forEach(c => {
+      c.classList.remove('open');
+      c.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      card.classList.add('open');
+      card.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  function updateAddonA11y() {
+    const isMobile = window.innerWidth < 641;
+    document.querySelectorAll('.addon-card').forEach(card => {
+      if (isMobile) {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        if (!card.hasAttribute('aria-expanded')) card.setAttribute('aria-expanded', 'false');
+      } else {
+        card.removeAttribute('role');
+        card.removeAttribute('tabindex');
+        card.removeAttribute('aria-expanded');
+        card.classList.remove('open');
+      }
+    });
+  }
+  window.addEventListener('load', updateAddonA11y);
+  window.addEventListener('resize', updateAddonA11y);
+
+  // Pricing cards only respond to clicks on mobile (accordion behavior),
+  // so only expose them as keyboard-focusable buttons in that mode.
+  function updatePricingA11y() {
+    const isMobile = window.innerWidth < 1024;
+    document.querySelectorAll('.pricing-card').forEach(card => {
+      if (isMobile) {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+        if (!card.hasAttribute('aria-expanded')) card.setAttribute('aria-expanded', 'false');
+      } else {
+        card.removeAttribute('role');
+        card.removeAttribute('tabindex');
+        card.removeAttribute('aria-expanded');
+      }
+    });
+  }
+  window.addEventListener('load', updatePricingA11y);
+  window.addEventListener('resize', updatePricingA11y);
+
+  // Keyboard support (Enter / Space) for interactive elements built on
+  // <div> instead of <button> — project cards, pricing cards, hamburger menu.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const target = e.target.closest(
+      '.project-card[role="button"], .pricing-card[role="button"], .addon-card[role="button"], #hamburger'
+    );
+    if (!target) return;
+    e.preventDefault();
+    target.click();
+  });
 
   function toggleMenu(){
       document.getElementById("sidebar").classList.toggle('open');
@@ -181,11 +252,177 @@
     window.open(`https://wa.me/21692131604?text=${encodeURIComponent(message)}`, '_blank');
   }
 
+  // Email field — live "@...com" validation + quick-select domain chips.
+  // The field stays optional: nothing is flagged while it's empty.
+  (function initEmailField() {
+    const input = document.getElementById('emailInput');
+    if (!input) return;
+    const wrap = input.closest('.email-input-wrap');
+    const chips = document.querySelectorAll('.domain-chip');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function validate() {
+      const val = input.value.trim();
+      wrap.classList.remove('valid', 'invalid');
+      if (val.length === 0) return;
+      wrap.classList.add(emailRegex.test(val) ? 'valid' : 'invalid');
+    }
+
+    input.addEventListener('input', validate);
+
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const domain = chip.dataset.domain;
+        const current = input.value.trim();
+        const localPart = current.includes('@') ? current.split('@')[0] : current;
+        input.value = localPart ? `${localPart}@${domain}` : `@${domain}`;
+        input.focus();
+        if (!localPart) input.setSelectionRange(0, 0);
+        validate();
+      });
+    });
+  })();
+
   function checkService() {
     const select = document.getElementById('serviceSelect');
     const alert = document.getElementById('serviceAlert');
     alert.classList.remove('show');
    }
+
+  // Custom "Select a Service" dropdown — multi-select listbox pattern.
+  // "Full Brand Identity" is exclusive: picking it clears every other
+  // choice, and picking any other choice clears it. Keeps #serviceSelect
+  // (hidden input) as the source of truth so sendWhatsApp() still works.
+  (function initServiceDropdown() {
+    const dropdown = document.getElementById('serviceDropdown');
+    if (!dropdown) return;
+    const trigger = document.getElementById('serviceTrigger');
+    const label = document.getElementById('serviceTriggerLabel');
+    const list = document.getElementById('serviceList');
+    const hiddenInput = document.getElementById('serviceSelect');
+    const options = Array.from(list.querySelectorAll('li[role="option"]'));
+    const placeholder = label.textContent;
+
+    function openList() {
+      dropdown.classList.add('open');
+      trigger.setAttribute('aria-expanded', 'true');
+      const current = list.querySelector('li.selected:not(.locked)') || options.find(o => !o.classList.contains('locked'));
+      if (current) current.focus();
+    }
+
+    function closeList() {
+      dropdown.classList.remove('open');
+      trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    function refreshLabel() {
+      // Only count options the user actually picked — options merely
+      // "included" (locked) via Full Brand Identity aren't listed twice.
+      const chosen = options.filter(o => o.classList.contains('selected') && !o.classList.contains('locked'));
+      if (chosen.length === 0) {
+        label.textContent = placeholder;
+        dropdown.classList.remove('has-value');
+        hiddenInput.value = '';
+      } else if (chosen.length <= 2) {
+        label.textContent = chosen.map(o => o.dataset.value).join(', ');
+        dropdown.classList.add('has-value');
+        hiddenInput.value = chosen.map(o => o.dataset.value).join(', ');
+      } else {
+        label.textContent = `${chosen.length} services selected`;
+        dropdown.classList.add('has-value');
+        hiddenInput.value = chosen.map(o => o.dataset.value).join(', ');
+      }
+      checkService();
+    }
+
+    function setLocked(li, locked) {
+      li.classList.toggle('locked', locked);
+      li.classList.toggle('selected', locked || li.classList.contains('selected'));
+      if (locked) {
+        li.setAttribute('aria-selected', 'true');
+        li.setAttribute('aria-disabled', 'true');
+      } else {
+        li.classList.remove('selected');
+        li.setAttribute('aria-selected', 'false');
+        li.removeAttribute('aria-disabled');
+      }
+    }
+
+    const exclusiveLi = options.find(o => o.dataset.exclusive === 'true');
+    const impliedLis = (exclusiveLi?.dataset.implies || '')
+      .split(',')
+      .map(v => v.trim())
+      .filter(Boolean)
+      .map(val => options.find(o => o.dataset.value === val))
+      .filter(Boolean);
+
+    function activateFullPackage() {
+      exclusiveLi.classList.add('selected');
+      exclusiveLi.setAttribute('aria-selected', 'true');
+      impliedLis.forEach(li => setLocked(li, true));
+    }
+
+    function deactivateFullPackage() {
+      exclusiveLi.classList.remove('selected');
+      exclusiveLi.setAttribute('aria-selected', 'false');
+      impliedLis.forEach(li => setLocked(li, false));
+    }
+
+    function toggleOption(li) {
+      if (li.classList.contains('locked')) return; // included via Full Package, not directly toggleable
+
+      if (li === exclusiveLi) {
+        const willSelect = !li.classList.contains('selected');
+        willSelect ? activateFullPackage() : deactivateFullPackage();
+      } else {
+        const willSelect = !li.classList.contains('selected');
+        li.classList.toggle('selected', willSelect);
+        li.setAttribute('aria-selected', String(willSelect));
+
+        // Picking every implied option by hand (e.g. Logo Design +
+        // Brand Guidelines) is the same thing as picking the Full
+        // Package directly — merge them and lock the pair in.
+        if (impliedLis.length && impliedLis.every(o => o.classList.contains('selected'))) {
+          activateFullPackage();
+        }
+      }
+
+      refreshLabel();
+    }
+
+    function focusableOptions() {
+      return options.filter(o => !o.classList.contains('locked'));
+    }
+
+    trigger.addEventListener('click', () => {
+      dropdown.classList.contains('open') ? closeList() : openList();
+    });
+
+    options.forEach((li) => {
+      li.addEventListener('click', () => toggleOption(li));
+      li.addEventListener('keydown', (e) => {
+        const focusable = focusableOptions();
+        const i = focusable.indexOf(li);
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleOption(li);
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          (focusable[i + 1] || focusable[0])?.focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          (focusable[i - 1] || focusable[focusable.length - 1])?.focus();
+        } else if (e.key === 'Escape') {
+          closeList();
+          trigger.focus();
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) closeList();
+    });
+  })();
   
   function sendWhatsApp() {
     const select = document.getElementById('serviceSelect');

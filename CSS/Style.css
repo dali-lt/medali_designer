@@ -82,6 +82,20 @@ body.no-scroll {
   --page-margin: 50px;
 }
 
+/* Visible keyboard focus for links, buttons, and the div-based
+   interactive cards (project cards, pricing cards, hamburger). Uses
+   :focus-visible so mouse/touch users never see it — only keyboard
+   and other non-pointer navigation does. */
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 @media (max-width: 1024px) {
   * {
     backdrop-filter: none !important;
@@ -1941,6 +1955,241 @@ section.visible,
   font-size: 14px;
 }
 
+/* Custom "Select a Service" dropdown — replaces the native <select> with
+   a styled single-choice list (radio behaviour: picking one clears any
+   other selection). #serviceSelect stays as a hidden input so the rest
+   of the form JS (sendWhatsApp) keeps reading its value unchanged. */
+.service-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.service-dropdown-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.service-dropdown-trigger span {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.service-dropdown.has-value .service-dropdown-trigger span {
+  color: var(--white);
+}
+
+.service-dropdown-chevron {
+  flex-shrink: 0;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.25s ease;
+}
+
+.service-dropdown.open .service-dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.service-dropdown.open .service-dropdown-trigger {
+  border-color: var(--orange);
+}
+
+.service-dropdown-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #141614;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+.service-dropdown.open .service-dropdown-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.service-dropdown-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.service-dropdown-list li:hover,
+.service-dropdown-list li:focus-visible {
+  background: rgba(255, 63, 26, 0.12);
+  outline: none;
+}
+
+.service-dropdown-list li.selected {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.service-dropdown-list li.locked {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.service-dropdown-list li.locked.selected {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.service-dropdown-list li.locked.selected::after {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.service-dropdown-list li::after {
+  content: "\2713";
+  color: var(--orange);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.service-dropdown-list li.selected::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Name & Message fields — icon treatment matching the email field */
+.input-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon-wrap .input-icon {
+  position: absolute;
+  left: 20px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-icon-wrap .icon-input {
+  width: 100%;
+  padding-left: 46px;
+}
+
+.input-icon-wrap.textarea-icon-wrap {
+  align-items: flex-start;
+}
+
+.input-icon-wrap.textarea-icon-wrap .input-icon {
+  top: 18px;
+}
+
+/* Email field — icon, live validation, quick-select domain chips */
+.email-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.email-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.email-input-wrap .email-icon {
+  position: absolute;
+  left: 20px;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.email-input-wrap .email-input {
+  width: 100%;
+  padding-left: 46px;
+  padding-right: 40px;
+}
+
+.email-input-wrap .email-valid-icon {
+  position: absolute;
+  right: 16px;
+  font-size: 18px;
+  color: var(--teal);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.email-input-wrap.valid .email-input {
+  border-color: var(--teal);
+}
+
+.email-input-wrap.valid .email-icon {
+  color: var(--teal);
+}
+
+.email-input-wrap.valid .email-valid-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.email-input-wrap.invalid .email-input {
+  border-color: rgba(255, 63, 26, 0.5);
+}
+
+.quick-select-label {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.quick-select-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.domain-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 12px;
+  font-family: inherit;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.domain-chip:hover,
+.domain-chip:focus-visible {
+  border-color: var(--orange);
+  color: var(--white);
+  background: rgba(255, 63, 26, 0.1);
+}
+
 /* Submit Button */
 .contact-btn {
   background: var(--orange);
@@ -2753,6 +3002,7 @@ section.visible,
 }
 
 .addon-btn {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2781,8 +3031,54 @@ section.visible,
   font-size: 14px;
 }
 
+.addon-chevron {
+  display: none;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
 @media (max-width: 640px) {
   .addon-grid {
     grid-template-columns: 1fr;
+  }
+
+  .addon-card {
+    cursor: pointer;
+    gap: 0;
+  }
+
+  .addon-top {
+    padding-bottom: 0;
+  }
+
+  .addon-card.open .addon-top {
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    margin-bottom: 0;
+  }
+
+  .addon-body {
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: max-height 0.4s ease, padding-top 0.3s ease;
+  }
+
+  .addon-card.open .addon-body {
+    max-height: 400px;
+    padding-top: 14px;
+  }
+
+  .addon-chevron {
+    display: block;
+  }
+
+  .addon-card.open .addon-chevron {
+    transform: rotate(180deg);
+    color: var(--orange);
   }
 }

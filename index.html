@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html>
+<html lang="en">
   <head>
     <meta name="google-site-verification" content="rzbxqcQGJKJ--_F9ZL8uNLm4t7RBA63RpgFZcHZuu8w" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -65,7 +65,15 @@
       <a href="#contact" id="btnCon">Contact</a>
 
       <!-- Hamburger -->
-      <div class="hamburger" id="hamburger" onclick="toggleMenu()">+</div>
+      <div
+        class="hamburger"
+        id="hamburger"
+        role="button"
+        tabindex="0"
+        aria-label="Open menu"
+        aria-expanded="false"
+        onclick="toggleMenu()"
+      >+</div>
     </nav>
 
     <!-- Sidebar -->
@@ -260,7 +268,13 @@
 
       <div class="projects-grid">
         <!-- WAQ3 -->
-        <div class="project-card" onclick="openGallery(2, 4)">
+        <div
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-label="View WAQ3 slides"
+          onclick="openGallery(2, 4)"
+        >
           <div class="project-cover">
             <img src="Images/Projects/waq3-cover.png"
               alt="WAQ3 Tunisian streetwear brand identity design by Mohamed Ali Louati"
@@ -279,7 +293,13 @@
         </div>
 
         <!-- Oumyaé -->
-        <div class="project-card" onclick="openGallery(5, 7)">
+        <div
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-label="View Oumyaé slides"
+          onclick="openGallery(5, 7)"
+        >
           <div class="project-cover">
             <img src="Images/Projects/oumyae-cover.png"
               alt="Oumyaé feminine luxury brand identity design by Mohamed Ali Louati"
@@ -298,7 +318,13 @@
         </div>
 
         <!-- No Name -->
-        <div class="project-card" onclick="openGallery(8, 10)">
+        <div
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-label="View No Name slides"
+          onclick="openGallery(8, 10)"
+        >
           <div class="project-cover">
             <img src="Images/Projects/noname-cover.png"
               alt="No Name luxury sportswear brand identity design by Mohamed Ali Louati"
@@ -317,7 +343,13 @@
         </div>
 
         <!-- Accessoires Plus -->
-        <div class="project-card" onclick="openGallery(11, 14)">
+        <div
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-label="View Accessoires Plus slides"
+          onclick="openGallery(11, 14)"
+        >
           <div class="project-cover">
             <img src="Images/Projects/accessoiresplus-cover.png" 
               alt="Accessoires Plus jewelry and watches brand identity design by Mohamed Ali Louati"
@@ -336,7 +368,13 @@
         </div>
 
         <!-- Tounsi Food -->
-        <div class="project-card" onclick="openGallery(15, 17)">
+        <div
+          class="project-card"
+          role="button"
+          tabindex="0"
+          aria-label="View Tounsi Food slides"
+          onclick="openGallery(15, 17)"
+        >
           <div class="project-cover">
             <img src="Images/Projects/tounsifood-cover.png"
               alt="Tounsi Food Tunisian street food brand identity design by Mohamed Ali Louati"
@@ -543,7 +581,7 @@
 
       <div class="pricing-grid">
         <!-- Starter -->
-        <div class="pricing-card" onclick="togglePricing(this)">
+        <div class="pricing-card" aria-label="Starter package, 100 DT" onclick="togglePricing(this)">
           <div class="pricing-header">
             <span class="pricing-tag">Starter</span>
             <div class="pricing-price">100 <span>DT</span></div>
@@ -592,7 +630,7 @@
         </div>
 
         <!-- Brand Core — Featured -->
-        <div class="pricing-card featured" onclick="togglePricing(this)">
+        <div class="pricing-card featured" aria-label="Brand Core package, 150 DT, most popular" onclick="togglePricing(this)">
           <div class="pricing-badge">Most Popular</div>
           <div class="pricing-header">
             <span class="pricing-tag">Brand Core</span>
@@ -645,7 +683,7 @@
         </div>
 
         <!-- Full Identity -->
-        <div class="pricing-card" onclick="togglePricing(this)">
+        <div class="pricing-card" aria-label="Full Identity package, 280 DT" onclick="togglePricing(this)">
           <div class="pricing-header">
             <span class="pricing-tag">Full Identity</span>
             <div class="pricing-price">280 <span>DT</span></div>
@@ -703,50 +741,62 @@
         <p class="addon-label">Already have a brand?</p>
         <div class="addon-grid">
           <!-- Packaging Design -->
-          <div class="addon-card">
+          <div class="addon-card" aria-label="Packaging Design add-on, 150 to 180 DT" onclick="toggleAddon(this)">
             <div class="addon-top">
               <ion-icon name="cube-outline"></ion-icon>
               <span class="addon-title">Packaging Design</span>
               <span class="addon-price">150–180 <span>DT</span></span>
+              <ion-icon
+                name="chevron-down-outline"
+                class="addon-chevron"
+              ></ion-icon>
             </div>
-            <p class="addon-desc">
-              Box + Label + Bag design, with custom illustration when needed.
-            </p>
-            <div class="addon-meta">
-              <span><ion-icon name="checkmark-outline"></ion-icon> PNG + PDF (print-ready)</span>
-              <span><ion-icon name="checkmark-outline"></ion-icon> 2 revisions</span>
-              <span><ion-icon name="time-outline"></ion-icon> Depends on project size</span>
+            <div class="addon-body">
+              <p class="addon-desc">
+                Box + Label + Bag design, with custom illustration when needed.
+              </p>
+              <div class="addon-meta">
+                <span><ion-icon name="checkmark-outline"></ion-icon> PNG + PDF (print-ready)</span>
+                <span><ion-icon name="checkmark-outline"></ion-icon> 2 revisions</span>
+                <span><ion-icon name="time-outline"></ion-icon> Depends on project size</span>
+              </div>
+              <button
+                class="addon-btn"
+                onclick="event.stopPropagation(); sendAddonQuote('Packaging Design', '150–180')"
+              >
+                <ion-icon name="logo-whatsapp"></ion-icon> Get a Quote
+              </button>
             </div>
-            <button
-              class="addon-btn"
-              onclick="sendAddonQuote('Packaging Design', '150–180')"
-            >
-              <ion-icon name="logo-whatsapp"></ion-icon> Get a Quote
-            </button>
           </div>
 
           <!-- Social Media Design -->
-          <div class="addon-card">
+          <div class="addon-card" aria-label="Social Media Design add-on, 120 to 150 DT" onclick="toggleAddon(this)">
             <div class="addon-top">
               <ion-icon name="phone-portrait-outline"></ion-icon>
               <span class="addon-title">Social Media Design</span>
               <span class="addon-price">120–150 <span>DT</span></span>
+              <ion-icon
+                name="chevron-down-outline"
+                class="addon-chevron"
+              ></ion-icon>
             </div>
-            <p class="addon-desc">
-              5–8 post templates + story templates, matching your existing
-              brand.
-            </p>
-            <div class="addon-meta">
-              <span><ion-icon name="checkmark-outline"></ion-icon> Editable source file</span>
-              <span><ion-icon name="checkmark-outline"></ion-icon> 2 revisions</span>
-              <span><ion-icon name="time-outline"></ion-icon> Depends on project size</span>
+            <div class="addon-body">
+              <p class="addon-desc">
+                5–8 post templates + story templates, matching your existing
+                brand.
+              </p>
+              <div class="addon-meta">
+                <span><ion-icon name="checkmark-outline"></ion-icon> Editable source file</span>
+                <span><ion-icon name="checkmark-outline"></ion-icon> 2 revisions</span>
+                <span><ion-icon name="time-outline"></ion-icon> Depends on project size</span>
+              </div>
+              <button
+                class="addon-btn"
+                onclick="event.stopPropagation(); sendAddonQuote('Social Media Design', '120–150')"
+              >
+                <ion-icon name="logo-whatsapp"></ion-icon> Get a Quote
+              </button>
             </div>
-            <button
-              class="addon-btn"
-              onclick="sendAddonQuote('Social Media Design', '120–150')"
-            >
-              <ion-icon name="logo-whatsapp"></ion-icon> Get a Quote
-            </button>
           </div>
         </div>
       </div>
@@ -840,26 +890,78 @@
       </div>
 
       <div class="contact-right">
-        <select
-          class="contact-input"
-          id="serviceSelect"
-          onchange="checkService()"
-        >
-          <option value="">Select a Service</option>
-          <option value="Full Brand Identity">Full Brand Identity (Complete Package)</option>
-          <option value="Logo Design">Logo Design Only</option>
-          <option value="Brand Guidelines">Brand Guidelines Only</option>
-          <option value="Packaging Design">Packaging Design Only</option>
-          <option value="Social Media Design">Social Media Design Only</option>
-        </select>
+        <div class="service-dropdown" id="serviceDropdown">
+          <button
+            type="button"
+            class="service-dropdown-trigger contact-input"
+            id="serviceTrigger"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            <span id="serviceTriggerLabel">Select a Service</span>
+            <ion-icon
+              name="chevron-down-outline"
+              class="service-dropdown-chevron"
+              aria-hidden="true"
+            ></ion-icon>
+          </button>
+          <ul
+            class="service-dropdown-list"
+            id="serviceList"
+            role="listbox"
+            aria-multiselectable="true"
+            aria-label="Select a Service"
+          >
+            <li role="option" aria-selected="false" tabindex="-1" data-value="Full Brand Identity (Complete Package)" data-exclusive="true" data-implies="Logo Design,Brand Guidelines">Full Brand Identity (Complete Package)</li>
+            <li role="option" aria-selected="false" tabindex="-1" data-value="Logo Design">Logo Design</li>
+            <li role="option" aria-selected="false" tabindex="-1" data-value="Brand Guidelines">Brand Guidelines</li>
+            <li role="option" aria-selected="false" tabindex="-1" data-value="Packaging Design">Packaging Design</li>
+            <li role="option" aria-selected="false" tabindex="-1" data-value="Social Media Design">Social Media Design</li>
+          </ul>
+          <input type="hidden" id="serviceSelect" value="" />
+        </div>
 
         <div class="service-alert" id="serviceAlert">
           <ion-icon name="warning-outline"></ion-icon>
           This service is not available yet.
         </div>
-        <input type="text" placeholder="Name" class="contact-input" />
-        <input type="email" placeholder="Email" class="contact-input" />
-        <textarea placeholder="Message" class="contact-textarea"></textarea>
+        <div class="input-icon-wrap">
+          <ion-icon name="person-outline" class="input-icon" aria-hidden="true"></ion-icon>
+          <input type="text" placeholder="Name" class="contact-input icon-input" />
+        </div>
+
+        <div class="email-field" id="emailField">
+          <div class="email-input-wrap">
+            <ion-icon name="mail-outline" class="email-icon" aria-hidden="true"></ion-icon>
+            <input
+              type="email"
+              placeholder="Email"
+              class="contact-input email-input"
+              id="emailInput"
+              autocomplete="email"
+              inputmode="email"
+            />
+            <ion-icon
+              name="checkmark-circle"
+              class="email-valid-icon"
+              id="emailValidIcon"
+              aria-hidden="true"
+            ></ion-icon>
+          </div>
+          <div class="email-quick-select">
+            <span class="quick-select-label">Quick Select</span>
+            <div class="quick-select-chips">
+              <button type="button" class="domain-chip" data-domain="gmail.com">gmail.com</button>
+              <button type="button" class="domain-chip" data-domain="outlook.com">outlook.com</button>
+              <button type="button" class="domain-chip" data-domain="yahoo.com">yahoo.com</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="input-icon-wrap textarea-icon-wrap">
+          <ion-icon name="chatbubble-outline" class="input-icon" aria-hidden="true"></ion-icon>
+          <textarea placeholder="Message" class="contact-textarea icon-input"></textarea>
+        </div>
         <button class="contact-btn" onclick="sendWhatsApp()">Submit</button>
         <p class="contact-whatsapp-note">
           <ion-icon name="logo-whatsapp"></ion-icon>
