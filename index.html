@@ -266,131 +266,10 @@
       <p class="work-label">— Selected Work —</p>
       <h2 class="work-title">My <span>Work</span></h2>
 
-      <div class="projects-grid">
-        <!-- WAQ3 -->
-        <div
-          class="project-card"
-          role="button"
-          tabindex="0"
-          aria-label="View WAQ3 slides"
-          onclick="openGallery(2, 4)"
-        >
-          <div class="project-cover">
-            <img src="Images/Projects/waq3-cover.png"
-              alt="WAQ3 Tunisian streetwear brand identity design by Mohamed Ali Louati"
-              loading="lazy"
-            />
-            <div class="project-overlay">
-              <span class="project-view"
-                ><ion-icon name="expand-outline"></ion-icon> View Slides</span
-              >
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>WAQ3</h3>
-            <p>Tunisian Streetwear Brand</p>
-          </div>
-        </div>
-
-        <!-- Oumyaé -->
-        <div
-          class="project-card"
-          role="button"
-          tabindex="0"
-          aria-label="View Oumyaé slides"
-          onclick="openGallery(5, 7)"
-        >
-          <div class="project-cover">
-            <img src="Images/Projects/oumyae-cover.png"
-              alt="Oumyaé feminine luxury brand identity design by Mohamed Ali Louati"
-              loading="lazy"
-            />
-            <div class="project-overlay">
-              <span class="project-view"
-                ><ion-icon name="expand-outline"></ion-icon> View Slides</span
-              >
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Oumyaé</h3>
-            <p>Feminine Luxury Brand</p>
-          </div>
-        </div>
-
-        <!-- No Name -->
-        <div
-          class="project-card"
-          role="button"
-          tabindex="0"
-          aria-label="View No Name slides"
-          onclick="openGallery(8, 10)"
-        >
-          <div class="project-cover">
-            <img src="Images/Projects/noname-cover.png"
-              alt="No Name luxury sportswear brand identity design by Mohamed Ali Louati"
-              loading="lazy"
-            />
-            <div class="project-overlay">
-              <span class="project-view"
-                ><ion-icon name="expand-outline"></ion-icon> View Slides</span
-              >
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>No Name</h3>
-            <p>Luxury Sportswear Brand</p>
-          </div>
-        </div>
-
-        <!-- Accessoires Plus -->
-        <div
-          class="project-card"
-          role="button"
-          tabindex="0"
-          aria-label="View Accessoires Plus slides"
-          onclick="openGallery(11, 14)"
-        >
-          <div class="project-cover">
-            <img src="Images/Projects/accessoiresplus-cover.png" 
-              alt="Accessoires Plus jewelry and watches brand identity design by Mohamed Ali Louati"
-              loading="lazy"
-            />
-            <div class="project-overlay">
-              <span class="project-view"
-                ><ion-icon name="expand-outline"></ion-icon> View Slides</span
-              >
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Accessoires Plus</h3>
-            <p>Jewelry &amp; Watches Brand</p>
-          </div>
-        </div>
-
-        <!-- Tounsi Food -->
-        <div
-          class="project-card"
-          role="button"
-          tabindex="0"
-          aria-label="View Tounsi Food slides"
-          onclick="openGallery(15, 17)"
-        >
-          <div class="project-cover">
-            <img src="Images/Projects/tounsifood-cover.png"
-              alt="Tounsi Food Tunisian street food brand identity design by Mohamed Ali Louati"
-              loading="lazy"
-            />
-            <div class="project-overlay">
-              <span class="project-view"
-                ><ion-icon name="expand-outline"></ion-icon> View Slides</span
-              >
-            </div>
-          </div>
-          <div class="project-info">
-            <h3>Tounsi Food</h3>
-            <p>Tunisian Street Food Brand</p>
-          </div>
-        </div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project cards are rendered here by Script.js from the
+             `projects` data array — see JS/projects-data.js. Add a
+             new project there, not here. -->
 
         <!-- View on Behance -->
         <a
@@ -408,6 +287,19 @@
             ></span>
           </div>
         </a>
+      </div>
+
+      <div class="work-more" id="workMoreWrap">
+        <button
+          type="button"
+          class="work-more-btn"
+          id="viewMoreBtn"
+          aria-expanded="false"
+          onclick="toggleProjects()"
+        >
+          <span id="viewMoreLabel">View More Projects</span>
+          <ion-icon name="chevron-down-outline" id="viewMoreIcon"></ion-icon>
+        </button>
       </div>
 
       <div class="work-cta">
@@ -970,6 +862,7 @@
       </div>
     </section>
 
+    <script src="JS/projects-data.js"></script>
     <script src="JS/Script.js"></script>
 
     <script
