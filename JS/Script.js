@@ -2,7 +2,7 @@
   // 20 slides = original Logofolio2026 PDF export.
   // 21-32 = Accessoires Plus — Packaging (new, separate export).
   // Bump this number whenever you add more slides for a future project.
-  const galleryImages = Array.from({ length: 32 }, (_, i) =>
+  const galleryImages = Array.from({ length: 22 }, (_, i) =>
     `Images/gallery/slide-${String(i + 1).padStart(2, '0')}.png`
   );
 
@@ -135,6 +135,31 @@
   });
 
   // Reviews Carousel — seamless infinite loop.
+  // Reviews Carousel — seamless infinite loop.
+  // `reviews` comes from JS/reviews-data.js (loaded before this file).
+  // Add a new review there, not here.
+  function renderReviews() {
+    const track = document.getElementById('reviewsTrack');
+    if (!track) return;
+    const html = reviews
+      .map((r) => {
+        const langAttr = r.lang ? ` lang="${r.lang}"` : '';
+        const starsHtml = '★'.repeat(r.stars || 5);
+        const quoteHtml = r.lines.join('<br />');
+        return `
+      <div class="review-card">
+        <div class="review-stars">${starsHtml}</div>
+        <p class="review-text"${langAttr}>❝ ${quoteHtml} ❞</p>
+        <div class="review-author">
+          <span class="review-name">${r.name}</span>
+        </div>
+      </div>`;
+      })
+      .join('');
+    track.innerHTML = html;
+  }
+  renderReviews();
+
   // We clone the full set of cards before AND after the real ones, so
   // scrolling always moves in the same direction. Once the animation
   // finishes and we've drifted into a cloned block, we silently snap
@@ -239,7 +264,7 @@
   function startReviewsAutoplay() {
     stopReviewsAutoplay();
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    reviewsTimer = setInterval(() => moveReviews(1), 5000);
+    reviewsTimer = setInterval(() => moveReviews(1), 2000);
   }
   function stopReviewsAutoplay() {
     if (reviewsTimer) clearInterval(reviewsTimer);
