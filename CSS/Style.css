@@ -2128,19 +2128,28 @@ section.visible,
   color: rgba(255, 255, 255, 0.55);
 }
 
-.service-dropdown-list li.locked.selected::after {
-  color: rgba(255, 255, 255, 0.4);
+.service-dropdown-list li.locked.selected .service-check {
+  background: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.service-dropdown-list li::after {
-  content: "\2713";
-  color: var(--orange);
+.service-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--orange);
+  color: white;
+  font-size: 12px;
   opacity: 0;
   transform: scale(0.4);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
 
-.service-dropdown-list li.selected::after {
+.service-dropdown-list li.selected .service-check {
   opacity: 1;
   transform: scale(1);
 }
