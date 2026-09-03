@@ -72,6 +72,17 @@ body.no-scroll {
   font-family: "IBM Plex Sans Arabic", sans-serif;
 }
 
+/* These three headlines must always render in the site's display font,
+   even if the browser's translate feature flips <html lang> to "ar"
+   (which :lang(ar) above would otherwise pick up). Scoped to exactly
+   these selectors — NOT a wildcard — so .hero-sub keeps its own
+   GaramondNova/italic styling untouched. */
+.hero-bg-text,
+.story-title,
+.services-huge {
+  font-family: "TT Firs Neue", sans-serif !important;
+}
+
 /* Variables */
 :root {
   --black: #1b1d1b;
@@ -2439,6 +2450,11 @@ section.visible,
   line-height: 1.7;
   font-style: italic;
   flex: 1;
+  /* Per-character font fallback: Latin letters render in TT Firs Neue
+     (covers those glyphs), Arabic script automatically falls back to
+     IBM Plex Sans Arabic — works even within the same mixed-script
+     line, and stays correct regardless of translate="no"/lang. */
+  font-family: "TT Firs Neue", "IBM Plex Sans Arabic", sans-serif !important;
 }
 
 .review-author {
@@ -2456,6 +2472,7 @@ section.visible,
   color: var(--white);
   letter-spacing: 1px;
   text-transform: uppercase;
+  font-family: "TT Firs Neue", "IBM Plex Sans Arabic", sans-serif !important;
 }
 
 .review-verify {
