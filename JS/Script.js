@@ -289,6 +289,23 @@ window.addEventListener("resize", () => {
   goToReview(0);
 });
 
+// Pricing cross-reference links ("Brand guide PDF with Full Identity →")
+// smooth-scroll to the referenced card and briefly highlight it, so
+// it's obvious which package the note pointed at — useful on mobile
+// where the cards stack and aren't all visible at once.
+document.querySelectorAll(".pricing-jump-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    target.classList.remove("jump-highlight");
+    void target.offsetWidth; // restart the animation if clicked again
+    target.classList.add("jump-highlight");
+    setTimeout(() => target.classList.remove("jump-highlight"), 1200);
+  });
+});
+
 function togglePricing(card) {
   if (window.innerWidth >= 1024) return;
   const isOpen = card.classList.contains("open");

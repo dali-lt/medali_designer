@@ -1369,7 +1369,9 @@ section.visible,
   letter-spacing: 0.02em;
   padding: 12px 26px;
   cursor: pointer;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
 }
 
 .work-more-btn:hover,
@@ -1969,7 +1971,9 @@ section.visible,
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   backdrop-filter: blur(8px);
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
 }
 
 .contact-item-icon-only svg {
@@ -2085,7 +2089,10 @@ section.visible,
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
-  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s;
 }
 
 .service-dropdown.open .service-dropdown-list {
@@ -2104,7 +2111,9 @@ section.visible,
   font-size: 14px;
   color: var(--white);
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 .service-dropdown-list li:hover,
@@ -2146,7 +2155,10 @@ section.visible,
   font-size: 12px;
   opacity: 0;
   transform: scale(0.4);
-  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .service-dropdown-list li.selected .service-check {
@@ -2218,7 +2230,9 @@ section.visible,
   color: var(--teal);
   opacity: 0;
   transform: scale(0.5);
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .email-input-wrap.valid .email-input {
@@ -2261,7 +2275,10 @@ section.visible,
   font-family: inherit;
   padding: 7px 14px;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
 }
 
 .domain-chip:hover,
@@ -2766,6 +2783,45 @@ section.visible,
   color: rgba(255, 255, 255, 0.2) !important;
 }
 
+.pricing-card-note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.6;
+  margin-top: -4px;
+}
+
+.pricing-card-note a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pricing-card-note a:hover {
+  text-decoration: underline;
+}
+
+/* Brief highlight glow when a cross-reference link scrolls a card
+   into view, so it's obvious which package the note was pointing at
+   — most useful on mobile where the cards stack and aren't all
+   visible at once. */
+@keyframes pricingHighlightPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(158, 210, 227, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(158, 210, 227, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(158, 210, 227, 0);
+  }
+}
+
+.pricing-card.jump-highlight {
+  animation: pricingHighlightPulse 1.2s ease-out;
+  border-color: var(--blue) !important;
+  transition: border-color 0.3s ease;
+}
+
 .pricing-btn {
   display: flex;
   align-items: center;
@@ -2978,9 +3034,23 @@ section.visible,
 /* ============================
    Pricing → Brand Brief CTA
    ============================ */
+.pricing-alt-paths {
+  max-width: 760px;
+  margin: 56px auto 0;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.pricing-alt-label {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
 .pricing-brief-cta {
   text-align: center;
-  margin-top: 56px;
+  margin-top: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2992,9 +3062,28 @@ section.visible,
   color: rgba(255, 255, 255, 0.55);
 }
 
+.pricing-brief-cta .work-cta-btn {
+  padding: 11px 22px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.pricing-brief-cta .work-cta-btn ion-icon {
+  font-size: 14px;
+}
+
+.pricing-alt-paths .pricing-footer {
+  margin-top: 22px;
+}
+
 @media (max-width: 768px) {
-  .pricing-brief-cta {
+  .pricing-alt-paths {
     margin-top: 40px;
+    padding-top: 20px;
+  }
+
+  .pricing-brief-cta {
+    margin-top: 18px;
   }
 }
 
@@ -3152,7 +3241,9 @@ section.visible,
     display: flex;
     flex-direction: column;
     gap: 8px;
-    transition: max-height 0.4s ease, padding-top 0.3s ease;
+    transition:
+      max-height 0.4s ease,
+      padding-top 0.3s ease;
   }
 
   .addon-card.open .addon-body {
