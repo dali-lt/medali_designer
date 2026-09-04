@@ -2002,6 +2002,49 @@ section.visible,
   justify-content: flex-end;
 }
 
+.contact-guide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.contact-guide-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.contact-guide-item ion-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--orange);
+  font-size: 17px;
+}
+
+.contact-guide-item p {
+  margin: 0;
+}
+
+.contact-guide strong {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .contact-guide {
+    grid-template-columns: 1fr;
+  }
+}
+
 .contact-input,
 .contact-textarea {
   background: rgba(255, 255, 255, 0.05);
