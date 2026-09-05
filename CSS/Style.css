@@ -2071,10 +2071,11 @@ section.visible,
 }
 
 .route-item {
-  display: flex;
-  direction: ltr; /* keeps arrow/box order fixed even if the page's
-                     dir flips to rtl (e.g. Chrome auto-translating to
-                     Arabic) — this is a visual motif, not text flow */
+  display: flex !important;
+  direction: ltr !important; /* keeps box/arrow order fixed even if the
+                     page's dir flips to rtl (e.g. Chrome auto-translating
+                     to Arabic) — this is a visual motif, not text flow */
+  flex-direction: row !important;
   min-width: 0;
   cursor: pointer;
   border-radius: 10px;
