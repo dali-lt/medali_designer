@@ -1067,7 +1067,7 @@ section.visible,
 }
 
 .service-card .service-note {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--orange);
   font-style: italic;
   margin-top: -8px;
@@ -1080,7 +1080,7 @@ section.visible,
 }
 
 .service-card .service-note ion-icon {
-  font-size: 15px;
+  font-size: 18px;
   flex-shrink: 0;
 }
 
