@@ -2008,28 +2008,36 @@ section.visible,
    tiny decorative divider — sized up and made interactive so it reads
    as a real decision point, not something to scroll past.
    ============================ */
+.route-section {
+  padding: 80px 80px;
+}
+
 .route-selector {
-  --route-arrow-size: 72px;
-  margin-bottom: 20px;
+  --route-arrow-size: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .route-selector-label {
   text-align: center;
-  font-size: 11px;
-  letter-spacing: 2px;
+  font-size: 12px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--orange);
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 .route-items {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 28px;
 }
 
 .route-item {
   display: flex;
+  direction: ltr; /* keeps arrow/box order fixed even if the page's
+                     dir flips to rtl (e.g. Chrome auto-translating to
+                     Arabic) — this is a visual motif, not text flow */
   min-width: 0;
   cursor: pointer;
   border-radius: 10px;
@@ -2070,13 +2078,13 @@ section.visible,
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4px;
-  padding: 12px 14px;
+  gap: 6px;
+  padding: 20px 22px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.55);
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
 .route-item:hover .route-box,
@@ -2085,21 +2093,40 @@ section.visible,
 }
 
 .route-number {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 1px;
   color: var(--orange);
 }
 
 .route-box strong {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-weight: 600;
-  font-size: 12px;
+  font-size: 15px;
+}
+
+@media (max-width: 1024px) {
+  .route-section {
+    padding: 60px 40px;
+  }
+
+  .route-selector {
+    --route-arrow-size: 80px;
+  }
+
+  .route-items {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
+  .route-section {
+    padding: 50px 24px;
+  }
+
   .route-items {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .route-item.route-down,
@@ -2108,11 +2135,7 @@ section.visible,
   }
 
   .route-selector {
-    --route-arrow-size: 56px;
-  }
-
-  .route-box {
-    font-size: 12px;
+    --route-arrow-size: 64px;
   }
 }
 
