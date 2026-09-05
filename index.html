@@ -512,11 +512,11 @@
             </ul>
             <p class="pricing-card-note">
               Color/typography system with
-              <a href="#brandCorePackage" class="pricing-jump-link"
+              <a href="#" class="pricing-jump-link"
                 >Brand Core →</a
               ><br />
               Brand guide PDF with
-              <a href="#fullIdentityPackage" class="pricing-jump-link"
+              <a href="#" class="pricing-jump-link"
                 >Full Identity →</a
               >
             </p>
@@ -577,7 +577,7 @@
             </ul>
             <p class="pricing-card-note">
               Brand guide PDF with
-              <a href="#fullIdentityPackage" class="pricing-jump-link"
+              <a href="#" class="pricing-jump-link"
                 >Full Identity →</a
               >
             </p>
@@ -846,32 +846,69 @@
       </div>
 
       <div class="contact-right">
-        <div class="contact-guide">
-          <div class="contact-guide-item">
-            <ion-icon name="rocket-outline" aria-hidden="true"></ion-icon>
-            <p>
-              <strong>Ready to start right away?</strong> Click "Get Started" on
-              the package you like.
-            </p>
-          </div>
-          <div class="contact-guide-item">
-            <ion-icon
-              name="document-text-outline"
-              aria-hidden="true"
-            ></ion-icon>
-            <p>
-              <strong
-                >Would you like to explain your project in detail first?</strong
-              >
-              Fill out the Brand Discovery Brief.
-            </p>
-          </div>
-          <div class="contact-guide-item">
-            <ion-icon name="chatbubbles-outline" aria-hidden="true"></ion-icon>
-            <p>
-              <strong>Have questions or still unsure?</strong> Fill out the form
-              below.
-            </p>
+        <div class="route-selector" id="routeSelector">
+          <p class="route-selector-label">— Choose Your Route —</p>
+
+          <div class="route-items">
+            <div
+              class="route-item route-down"
+              role="button"
+              tabindex="0"
+              data-route="pricing"
+              aria-label="Ready to start right away? Click Get Started on the package you like."
+            >
+              <img
+                src="Images/route-arrow-down.svg"
+                class="route-arrow"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="route-box">
+                <span class="route-number">01</span>
+                <strong>Ready to start right away?</strong>
+                <span>Click "Get Started" on the package you like.</span>
+              </div>
+            </div>
+
+            <div
+              class="route-item route-up"
+              role="button"
+              tabindex="0"
+              data-route="brief"
+              aria-label="Would you like to explain your project in detail first? Fill out the Brand Discovery Brief."
+            >
+              <img
+                src="Images/route-arrow-up.svg"
+                class="route-arrow"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="route-box">
+                <span class="route-number">02</span>
+                <strong>Explain your project first?</strong>
+                <span>Fill out the Brand Discovery Brief.</span>
+              </div>
+            </div>
+
+            <div
+              class="route-item route-down"
+              role="button"
+              tabindex="0"
+              data-route="form"
+              aria-label="Have questions or still unsure? Fill out the form below."
+            >
+              <img
+                src="Images/route-arrow-down.svg"
+                class="route-arrow"
+                alt=""
+                aria-hidden="true"
+              />
+              <div class="route-box">
+                <span class="route-number">03</span>
+                <strong>Still have questions?</strong>
+                <span>Fill out the form below.</span>
+              </div>
+            </div>
           </div>
         </div>
 

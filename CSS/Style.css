@@ -2002,46 +2002,117 @@ section.visible,
   justify-content: flex-end;
 }
 
-.contact-guide {
+/* ============================
+   Route Selector (Choose Your Route)
+   Bigger, branded version of the arrow+box motif used elsewhere as a
+   tiny decorative divider — sized up and made interactive so it reads
+   as a real decision point, not something to scroll past.
+   ============================ */
+.route-selector {
+  --route-arrow-size: 72px;
+  margin-bottom: 20px;
+}
+
+.route-selector-label {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+.route-items {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: 14px;
 }
 
-.contact-guide-item {
+.route-item {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
   min-width: 0;
-  padding: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.025);
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 11px;
-  line-height: 1.5;
+  transition: transform 0.25s ease;
 }
 
-.contact-guide-item ion-icon {
+.route-item:hover,
+.route-item:focus-visible {
+  transform: translateY(-4px);
+  outline: none;
+}
+
+/* Down arrow (↘) sits at the BOTTOM of the box */
+.route-item.route-down {
+  align-items: flex-end;
+}
+
+/* Up arrow (↗) sits at the TOP of the box */
+.route-item.route-up {
+  align-items: flex-start;
+}
+
+.route-arrow {
+  width: var(--route-arrow-size);
+  height: var(--route-arrow-size);
   flex-shrink: 0;
-  margin-top: 1px;
+  /* Same treatment as the decorative dividers elsewhere: dark source
+     art turned white, but far more opaque here since it's a primary
+     element, not a background texture. */
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.route-box {
+  flex: 1;
+  min-width: 0;
+  min-height: calc(var(--route-arrow-size) * 0.9619);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.route-item:hover .route-box,
+.route-item:focus-visible .route-box {
+  border-color: var(--orange);
+}
+
+.route-number {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
   color: var(--orange);
-  font-size: 17px;
 }
 
-.contact-guide-item p {
-  margin: 0;
-}
-
-.contact-guide strong {
-  color: rgba(255, 255, 255, 0.75);
-  font-weight: 500;
+.route-box strong {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  font-size: 12px;
 }
 
 @media (max-width: 768px) {
-  .contact-guide {
+  .route-items {
     grid-template-columns: 1fr;
+  }
+
+  .route-item.route-down,
+  .route-item.route-up {
+    align-items: center;
+  }
+
+  .route-selector {
+    --route-arrow-size: 56px;
+  }
+
+  .route-box {
+    font-size: 12px;
   }
 }
 

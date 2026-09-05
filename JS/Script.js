@@ -306,6 +306,30 @@ document.querySelectorAll(".pricing-jump-link").forEach((link) => {
   });
 });
 
+// Route selector ("Choose Your Route") — each item routes the visitor
+// to the next step that matches their readiness: straight to pricing,
+// to the external Brief, or down to the contact form itself.
+document.querySelectorAll(".route-item").forEach((item) => {
+  function activate() {
+    const route = item.dataset.route;
+    if (route === "pricing") {
+      document.getElementById("pricing")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else if (route === "brief") {
+      window.open("https://dali-lt.github.io/brand-brief/", "_blank");
+    } else if (route === "form") {
+      document.querySelector(".contact-right")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("serviceTrigger")?.focus();
+    }
+  }
+  item.addEventListener("click", activate);
+  item.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      activate();
+    }
+  });
+});
+
 function togglePricing(card) {
   if (window.innerWidth >= 1024) return;
   const isOpen = card.classList.contains("open");
