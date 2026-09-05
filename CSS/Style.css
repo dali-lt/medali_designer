@@ -2167,13 +2167,19 @@ section.visible,
     gap: 16px;
   }
 
-  .route-item.route-down,
-  .route-item.route-up {
-    align-items: center;
-  }
-
   .route-selector {
     --route-arrow-size: 64px;
+  }
+
+  /* Zigzag effect (arrow left/right/left) is mobile-only — on desktop
+     all three arrows stay on the left, matching the original design. */
+  .route-item.route-up .route-box {
+    order: 1;
+  }
+
+  .route-item.route-up .route-arrow {
+    order: 2;
+    transform: scaleX(-1);
   }
 }
 
