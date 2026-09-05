@@ -295,10 +295,9 @@ window.addEventListener("resize", () => {
 // where the cards stack and aren't all visible at once.
 document.querySelectorAll(".pricing-jump-link").forEach((link) => {
   link.addEventListener("click", (e) => {
+    e.preventDefault(); // never let the browser jump anywhere, even if the target lookup below fails
     const target = document.querySelector(link.getAttribute("href"));
     if (!target) return;
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth", block: "center" });
     target.classList.remove("jump-highlight");
     void target.offsetWidth; // restart the animation if clicked again
     target.classList.add("jump-highlight");

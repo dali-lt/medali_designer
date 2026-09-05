@@ -3132,6 +3132,31 @@ section.visible,
   padding: 0 30px;
 }
 
+.marquee-item.marquee-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.marquee-status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2ecc71;
+  flex-shrink: 0;
+  animation: marqueeStatusPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes marqueeStatusPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(46, 204, 113, 0);
+  }
+}
+
 .marquee-dot img {
   width: 10px;
 }
@@ -3164,6 +3189,10 @@ section.visible,
 
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
+    animation: none;
+  }
+
+  .marquee-status-dot {
     animation: none;
   }
 }
