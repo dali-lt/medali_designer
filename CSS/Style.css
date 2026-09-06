@@ -825,10 +825,11 @@ section.visible,
 
 @media (max-width: 500px) {
   .story-origin {
-    position: absolute;
-    left: 45%;
-    top: 20%;
-    line-height: 1.1;
+    position: relative;
+    left: unset;
+    top: unset;
+    margin-bottom: 12px;
+    line-height: 1.5;
   }
 }
 
@@ -923,6 +924,7 @@ section.visible,
   position: absolute;
   top: 50%;
   right: 0;
+  transform: translateY(-50%);
   width: clamp(140px, 22vw, 260px);
   height: clamp(140px, 22vw, 260px);
   z-index: 0;
@@ -1073,15 +1075,14 @@ section.visible,
   margin-top: -8px;
   font-weight: 600;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
-  width: max-content;
-  white-space: nowrap;
 }
 
 .service-card .service-note ion-icon {
   font-size: 18px;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .service-link {
@@ -1112,6 +1113,12 @@ section.visible,
   }
   .services-title {
     font-size: 32px;
+  }
+  .services-hero-circle {
+    width: 90px;
+    height: 90px;
+    top: 0;
+    transform: none;
   }
 }
 
