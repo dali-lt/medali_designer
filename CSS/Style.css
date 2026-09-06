@@ -1076,7 +1076,12 @@ section.visible,
   font-weight: 600;
   display: flex;
   align-items: flex-start;
-  gap: 6px;
+  gap: 4px;
+}
+
+.service-card .service-note span {
+  border-left: 1px solid var(--orange);
+  padding-left: 4px;
 }
 
 .service-card .service-note ion-icon {
