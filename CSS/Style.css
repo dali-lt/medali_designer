@@ -489,8 +489,20 @@ nav #btnCon:hover {
   object-fit: cover;
   object-position: top;
   mix-blend-mode: luminosity;
+}
+
+/* Fade-in-on-load — shared by the hero photo, project cover images
+   and the lightbox slides so nothing "pops in" abruptly once its
+   file actually finishes loading. Each image starts invisible and
+   fades to full opacity; the hero photo overrides that target below
+   to match its own designed opacity. */
+.fade-in-img {
   opacity: 0;
   transition: opacity 0.6s ease;
+}
+
+.fade-in-img.loaded {
+  opacity: 1;
 }
 
 .hero-img img.loaded {

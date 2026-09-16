@@ -39,7 +39,12 @@ function renderProjects() {
         onclick="openGallery(${start}, ${end})"
       >
         <div class="project-cover">
-          <img src="${p.cover}" alt="${p.alt}" loading="lazy" />
+          <img
+            class="fade-in-img"
+            src="${p.cover}"
+            alt="${p.alt}"
+            loading="lazy"
+          />
           <div class="project-overlay">
             <span class="project-view"><ion-icon name="expand-outline"></ion-icon> View Slides</span>
           </div>
@@ -123,8 +128,26 @@ function galleryNav(dir) {
   updateLightboxImage();
 }
 
+// Guards against a fast next/prev click: if slide B's "load" event
+// fires after the user has already moved on to slide C, this stops
+// it from flashing slide B's fade-in back in over slide C.
+let lightboxLoadToken = 0;
+
 function updateLightboxImage() {
+  const token = ++lightboxLoadToken;
+  lightboxImg.classList.remove("loaded");
   lightboxImg.src = galleryImages[currentSlide];
+  if (lightboxImg.complete && lightboxImg.naturalWidth > 0) {
+    lightboxImg.classList.add("loaded");
+  } else {
+    lightboxImg.addEventListener(
+      "load",
+      () => {
+        if (token === lightboxLoadToken) lightboxImg.classList.add("loaded");
+      },
+      { once: true },
+    );
+  }
   const scopedTotal = galleryEnd - galleryStart + 1;
   const scopedIndex = currentSlide - galleryStart + 1;
   lightboxCounter.textContent = `${scopedIndex} / ${scopedTotal}`;
@@ -329,16 +352,24 @@ document.querySelectorAll(".route-item").forEach((item) => {
   });
 });
 
-// Hero photo fade-in — starts invisible, fades to its designed
-// opacity once the image file actually finishes loading, so it never
-// "pops in" abruptly.
-document.querySelectorAll(".fade-in-img").forEach((img) => {
-  if (img.complete) {
+// Fade-in-on-load — shared helper for the hero photo, project cover
+// images and the lightbox slides, so none of them "pop in" abruptly.
+// Images already sitting in the browser cache (img.complete) fade in
+// immediately instead of waiting on a "load" event that already fired.
+function fadeInOnLoad(img) {
+  if (img.complete && img.naturalWidth > 0) {
     img.classList.add("loaded");
   } else {
-    img.addEventListener("load", () => img.classList.add("loaded"));
+    img.classList.remove("loaded");
+    img.addEventListener("load", () => img.classList.add("loaded"), {
+      once: true,
+    });
   }
-});
+}
+
+// Hero photo + project covers are already in the DOM by this point
+// (renderProjects() ran above), so this covers both in one pass.
+document.querySelectorAll(".fade-in-img").forEach(fadeInOnLoad);
 
 function togglePricing(card) {
   if (window.innerWidth >= 1024) return;
