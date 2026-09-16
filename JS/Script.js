@@ -329,6 +329,17 @@ document.querySelectorAll(".route-item").forEach((item) => {
   });
 });
 
+// Hero photo fade-in — starts invisible, fades to its designed
+// opacity once the image file actually finishes loading, so it never
+// "pops in" abruptly.
+document.querySelectorAll(".fade-in-img").forEach((img) => {
+  if (img.complete) {
+    img.classList.add("loaded");
+  } else {
+    img.addEventListener("load", () => img.classList.add("loaded"));
+  }
+});
+
 function togglePricing(card) {
   if (window.innerWidth >= 1024) return;
   const isOpen = card.classList.contains("open");

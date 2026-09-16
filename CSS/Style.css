@@ -489,6 +489,11 @@ nav #btnCon:hover {
   object-fit: cover;
   object-position: top;
   mix-blend-mode: luminosity;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-img img.loaded {
   opacity: 0.9;
 }
 
@@ -3198,6 +3203,10 @@ section.visible,
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
     animation: none;
+  }
+
+  .hero-img img {
+    transition: none;
   }
 }
 
